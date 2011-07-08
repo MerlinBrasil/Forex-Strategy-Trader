@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<strategy>
+  <programName>Forex Strategy Trader</programName>
+  <programVersion>1.4.0.0</programVersion>
+  <strategyName>Demo 01 Entry and Exit points</strategyName>
+  <instrumentSymbol>EURUSD</instrumentSymbol>
+  <instrumentPeriod>min1</instrumentPeriod>
+  <sameDirSignalAction>Nothing</sameDirSignalAction>
+  <oppDirSignalAction>Nothing</oppDirSignalAction>
+  <permanentStopLoss usePermanentSL="False" permanentSLType="Relative">1000</permanentStopLoss>
+  <permanentTakeProfit usePermanentTP="False" permanentTPType="Relative">1000</permanentTakeProfit>
+  <breakEven useBreakEven="False">1000</breakEven>
+  <maxOpenLots>20</maxOpenLots>
+  <useAccountPercentEntry>False</useAccountPercentEntry>
+  <entryLots>1</entryLots>
+  <addingLots>1</addingLots>
+  <reducingLots>1</reducingLots>
+  <description>This strategy is for demonstrational purposes only and real-time trading is not advised.
+
+Forex Strategy Trader uses trading strategies based on the technical analysis. A strategy of that type is basically a set of rules for entering and exiting the currency market, changing an existing position and defining the amount of lots being traded. These components are be defined in the slots of the strategy section in FST. Let’s get a closer look at each of them.
+
+The “Strategy Properties” section contains the rules for adding to and removing from an opened position, defines the amount of the lots being traded and sets Permanent Take Profit and Permanent Stop Loss values. 
+For this particular strategy we’ve set the amount of lots being traded to 1 lot. We won’t be using adding to or removing from a position. The Permanent Stop Loss and Take Profit values are not set so we won’t be using them as well. 
+
+The "Opening Point of the Position" slot sets the price we’ll be using to enter the market. In our case we’ll enter long when the price reaches the upper Bollinger Band. 
+
+The "Closing Point of the Position" slot sets the price we’ll be using to exit the market and in this strategy we’ll always close at the end of the bar. 
+
+It is not necessary to set separate rules for short and long entry. We only choose the logic for long position and then FST calculates the symmetrical rules for short entry. 
+
+In this sample strategy we’ll enter short when the price reaches the lower Bollinger Band (the symmetrically opposite logic to entering long at the upper band). This is done automatically by the program every time you set entry rules. 
+
+The closing rules are still the same – at the end of the bar, because in this case we use Bar Closing price which is the same no matter short or long position we are in.
+</description>
+  <openFilters>0</openFilters>
+  <closeFilters>0</closeFilters>
+  <slot slotNumber="0" slotType="Open">
+    <indicatorName>Bollinger Bands</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Enter long at the Upper Band</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>0</index>
+      <value>Simple</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Base price</caption>
+      <index>3</index>
+      <value>Close</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>MA period</caption>
+      <value>20</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Multiplier</caption>
+      <value>2.00</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="1" slotType="Close">
+    <indicatorName>Bar Closing</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Exit the market at the end of the bar</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Close</value>
+    </listParam>
+  </slot>
+</strategy>

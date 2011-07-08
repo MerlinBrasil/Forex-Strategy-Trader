@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<strategy>
+  <programName>Forex Strategy Trader</programName>
+  <programVersion>1.4.0.0</programVersion>
+  <strategyName>Demo 09 Bollinger Bands and ADX</strategyName>
+  <instrumentSymbol>EURUSD</instrumentSymbol>
+  <instrumentPeriod>min1</instrumentPeriod>
+  <sameDirSignalAction>Nothing</sameDirSignalAction>
+  <oppDirSignalAction>Nothing</oppDirSignalAction>
+  <permanentStopLoss usePermanentSL="True" permanentSLType="Relative">1200</permanentStopLoss>
+  <permanentTakeProfit usePermanentTP="False" permanentTPType="Relative">1000</permanentTakeProfit>
+  <breakEven useBreakEven="False">1000</breakEven>
+  <maxOpenLots>20</maxOpenLots>
+  <useAccountPercentEntry>False</useAccountPercentEntry>
+  <entryLots>1</entryLots>
+  <addingLots>1</addingLots>
+  <reducingLots>1</reducingLots>
+  <description>This strategy is for demonstrational purposes only and real-time trading is not advised.
+  
+This is a classical Bollinger Bands trend following system. We enter the market in the direction of the current trend when the bar opens outside the corresponding Bollinger Band. We enter the market at the bar opening price. However, we’ll only enter the first time the bar opens outside the Bollinger Band. The previous bar opening price must be inside the bands. We use the ADX indicator to confirm the trend. The ADX value must be increasing before we are allowed to open a position (all the entry conditions must be fulfilled when we open a position).
+
+The exit point is the central Moving Average line of the Bollinger Bands. We use a Permanent Stop Loss as an additional exit point and a loss limit. 
+
+Long entry rules:
+We enter the market long at bar opening price when the current bar opens above the Upper Bollinger Band and the previous bar has opened below it. The ADX value increases.
+
+Short entry rules:
+We enter the market short at bar opening price when the current bar opens below the Lower Bollinger Band and the previous bar has opened above it. The ADX value increases.
+
+Exit:
+We exit the market and close our position when the price reaches the central Moving Average line. We limit our maximal loss to 120pips with a Permanent Stop Loss order.
+</description>
+  <openFilters>2</openFilters>
+  <closeFilters>0</closeFilters>
+  <slot slotNumber="0" slotType="Open">
+    <indicatorName>Bar Opening</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Enter the market at the beginning of the bar</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Open</value>
+    </listParam>
+  </slot>
+  <slot slotNumber="1" slotType="OpenFilter" logicalGroup="A">
+    <indicatorName>Bollinger Bands</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>9</index>
+      <value>The bar opens above the Upper Band after opening below it</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>0</index>
+      <value>Simple</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Base price</caption>
+      <index>3</index>
+      <value>Close</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>MA period</caption>
+      <value>20</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Multiplier</caption>
+      <value>2.00</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="2" slotType="OpenFilter" logicalGroup="A">
+    <indicatorName>ADX</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>The ADX rises</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>2</index>
+      <value>Exponential</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Bar range</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>14</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Level</caption>
+      <value>0</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="3" slotType="Close">
+    <indicatorName>Moving Average</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Exit the market at the Moving Average</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>0</index>
+      <value>Simple</value>
+    </listParam>
+    <listParam paramNumber="2">
+      <caption>Base price</caption>
+      <index>3</index>
+      <value>Close</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>20</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Shift</caption>
+      <value>0</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+</strategy>

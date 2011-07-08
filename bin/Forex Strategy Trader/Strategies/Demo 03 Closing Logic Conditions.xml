@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<strategy>
+  <programName>Forex Strategy Trader</programName>
+  <programVersion>1.4.0.0</programVersion>
+  <strategyName>Demo 03 Closing Logic Conditions</strategyName>
+  <instrumentSymbol>EURUSD</instrumentSymbol>
+  <instrumentPeriod>min1</instrumentPeriod>
+  <sameDirSignalAction>Nothing</sameDirSignalAction>
+  <oppDirSignalAction>Nothing</oppDirSignalAction>
+  <permanentStopLoss usePermanentSL="False" permanentSLType="Relative">1000</permanentStopLoss>
+  <permanentTakeProfit usePermanentTP="False" permanentTPType="Relative">1000</permanentTakeProfit>
+  <breakEven useBreakEven="False">1000</breakEven>
+  <maxOpenLots>20</maxOpenLots>
+  <useAccountPercentEntry>False</useAccountPercentEntry>
+  <entryLots>1</entryLots>
+  <addingLots>1</addingLots>
+  <reducingLots>1</reducingLots>
+  <description>This strategy is for demonstrational purposes only and real-time trading is not advised.
+
+This strategy contains two logical rules for entering a position and two for closing a position. 
+
+The closing rules are in the two slots named as “Closing Logic Condition”. Each of them can be either satisfied or not satisfied. The specific thing to note is that the software will close our existing position even if only one of the exit conditions is satisfied (regardless of the other). Therefore, exiting a position is different from entering where ALL of the conditions must be satisfied for the software to send a buy/sell order. 
+
+In this particular example we’ll enter long at the beginning if the bar when both of the following conditions are satisfied: 
+1. Balance of Power is greater than zero; AND
+2. Money Flow Index is greater than 50.
+
+If any of the following two conditions is satisfied the program will close our position at the end of the bar: 
+
+1. Balance of Power is lower than zero; OR
+2. Money Flow Index is less than 50.
+
+If neither of these conditions is satisfied than the position will not close and will continue in the next bar. 
+
+The software will automatically calculate the logic for entering short based on our long entry rules we’ve set. Basically the opposite logic to the one set in the “Opening Logic Condition” applies: 
+
+1. Balance of Power is lower than zero; AND
+2. Money Flow Index is less than 50.
+
+The closing of the short position (like the closing of long ones) will happen if any of the set conditions is satisfied but this time the logic will be opposite to the one set in the fields because the closing rules we set apply for long positions only. That is why the program will automatically apply the opposite rules for closing short position (as it does for the opening conditions too): 
+
+1. Balance of Power is greater than zero: OR
+2. Money Flow Index is more than 50.
+
+It is also very important to know that the closing conditions are only available when we close a position at the end of a bar. That means we have to use "Closing Point of the Position" set to “Bar Closing” if we want to use such kind of conditions. 
+
+Forex Strategy Trader will allow you to set a maximum of two closing conditions. 
+
+If no exit conditions are selected the software will close any opened position when the price set in the "Closing Point of the Position" is reached. If however, there is even a single condition selected, the software will first check whether that condition is satisfied and if so it will then close the position.
+</description>
+  <openFilters>2</openFilters>
+  <closeFilters>2</closeFilters>
+  <slot slotNumber="0" slotType="Open">
+    <indicatorName>Bar Opening</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Enter the market at the beginning of the bar</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Open</value>
+    </listParam>
+  </slot>
+  <slot slotNumber="1" slotType="OpenFilter" logicalGroup="A">
+    <indicatorName>Balance of Power</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>2</index>
+      <value>The Balance of Power is higher than the zero line</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>0</index>
+      <value>Simple</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>14</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="2" slotType="OpenFilter" logicalGroup="A">
+    <indicatorName>Money Flow Index</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>2</index>
+      <value>The MFI is higher than the Level line</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>14</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Level</caption>
+      <value>50</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>True</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="3" slotType="Close">
+    <indicatorName>Bar Closing</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Exit the market at the end of the bar</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Close</value>
+    </listParam>
+  </slot>
+  <slot slotNumber="4" slotType="CloseFilter" logicalGroup="a">
+    <indicatorName>Balance of Power</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>3</index>
+      <value>The Balance of Power is lower than the zero line</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Smoothing method</caption>
+      <index>0</index>
+      <value>Simple</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>14</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>False</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="5" slotType="CloseFilter" logicalGroup="b">
+    <indicatorName>Money Flow Index</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>3</index>
+      <value>The MFI is lower than the Level line</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Period</caption>
+      <value>14</value>
+    </numParam>
+    <numParam paramNumber="1">
+      <caption>Level</caption>
+      <value>50</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>False</value>
+    </checkParam>
+  </slot>
+</strategy>

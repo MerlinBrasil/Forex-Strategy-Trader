@@ -1,0 +1,29 @@
+Software License Agreement
+
+Forex Strategy Trader is a freeware program.
+Copyright (c) 2011 Miroslav Popov - All rights reserved.
+Publisher: Forex Software Ltd. (http://forexsb.com/)
+
+Carefully read this license agreement before using the product. Using the product indicates that you have read this license agreement and agree to its terms.
+
+By using the product you accept the following License Agreement. If you do not agree to the conditions of this license, delete the product from your system.
+
+This User License entitles you to use a full set of product functionality for an unlimited time on any single computer without purchasing a license key. The software is in use when it is either loaded into RAM or installed into the hard disk or other permanent memory. The product functionality provided by the User license is described in the Users Guide.
+
+The software is protected by United States copyright laws, international treaty provisions, and all other applicable national laws. The software must be treated like all other copyrighted materials (e.g. books and musical recordings).
+
+OTHER RESTRICTIONS
+
+This License Agreement is your proof of license to exercise the rights granted herein and must be retained by you. LICENSEE may not rent or lease the Product. LICENSEE may not reverse engineer, decompile or disassemble the software program except to the extent such foregoing restriction is expressly prohibited by applicable law.
+
+NO WARRANTY. ANY USE BY LICENSEE IS AT THE LICENSEE'S OWN RISK. PRODUCT IS PROVIDED FOR USE "AS IS" WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE AUTHOR DISCLAIMS ALL WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. THE AUTHOR IS NOT OBLIGATED TO PROVIDE ANY UPDATES TO THE PRODUCT.
+
+NO LIABILITY FOR CONSEQUENTIAL DAMAGES
+
+In no event shall the author be liable for any damages whatsoever (including, without limitation, incidental, direct, indirect and consequential damages, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use or inability to use this product, even if advised of the possibility of such damages. Because some states/countries do not allow the exclusion or limitation of liability for consequential or incidental damages, the above limitation may not apply to you.
+
+This freeware software may be freely distributed, provided that:
+ - The name of the program and contact information cannot be changed.
+ - Such distribution includes only the original archive. You may not alter, delete or add any files in the distribution archive.
+ - The distribution does not include a registration key.
+ - No money is charged to the person receiving the software, beyond reasonable cost of packaging and other overhead.

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<strategy>
+  <programName>Forex Strategy Trader</programName>
+  <programVersion>1.4.0.0</programVersion>
+  <strategyName>Demo 04 One or Two Entry Prices</strategyName>
+  <instrumentSymbol>EURUSD</instrumentSymbol>
+  <instrumentPeriod>min1</instrumentPeriod>
+  <sameDirSignalAction>Nothing</sameDirSignalAction>
+  <oppDirSignalAction>Nothing</oppDirSignalAction>
+  <permanentStopLoss usePermanentSL="False" permanentSLType="Relative">1000</permanentStopLoss>
+  <permanentTakeProfit usePermanentTP="False" permanentTPType="Relative">1000</permanentTakeProfit>
+  <breakEven useBreakEven="False">1000</breakEven>
+  <maxOpenLots>20</maxOpenLots>
+  <useAccountPercentEntry>False</useAccountPercentEntry>
+  <entryLots>1</entryLots>
+  <addingLots>1</addingLots>
+  <reducingLots>1</reducingLots>
+  <description>This strategy is for demonstrational purposes only and real-time trading is not advised.
+
+The strategies used by Forex Strategy Trader to enter the market are symmetrical for long and short positions. In order to save time only the long entry logical rules can be set by the users and the short entry conditions are automatically calculated by the software simply using the opposite logic. To clarify this we’ll look at a couple of examples: 
+
+The “Opening Point of the Position” field specifies the price at which we are allowed to enter the market. Depending on what price we use the short logic price might be the same or different (opposite) to the one selected. 
+
+The following indicators used as entry point will have the same price for long and short position: Bar Closing, Bar Opening, Day Opening, Entry Hour, Ichimoku Kinko Hyo, Moving Average... Since these indicators set one and the same price for long or short positions, they cannot determine the direction of the trade and therefore we’ll need to set at least one logical condition to clarify the direction of our entry. 
+
+The following indicators used as entry price have different price for long and short entry: Bollinger Bands, Donchian Channel, Envelopes, Fractal, Heiken Ashi, Keltner Channel, Ross Hook… When using these indicators we’ll set only the long entry rules and the software will calculate the short rules automatically. 
+
+Let’s look at some examples: 
+
+Bollinger Bands – Enter long at the Upper Band
+we’ll enter the market long when the price reaches the upper band (and short at the lower band even if that is not specified in the strategy slot – the program will automatically calculate the opposite logic);
+
+Donchian Channel - Enter long at the Lower Band
+We’ll enter the market long at the lower band and short at the upper band. 
+
+If we use indicators that have different prices for short and long entry than they also can determine the direction on their own (no additional logical rules required). So we’ll enter long when the price reaches the long entry point and we’ll enter short when the price reaches the short entry point (of course we’ll enter the market only if all the other entry conditions are satisfied). 
+
+In this particular sample strategy the Price Move indicator (“Open” price used as base) is set to 20  for entering long. That means that if the price moves 20 pips upwards after the bar has opened then we’ll enter long. 
+
+And what the program automatically assumes is that we’ll want to enter short if the price moves 20 pips downwards after the bar has opened.
+</description>
+  <openFilters>0</openFilters>
+  <closeFilters>0</closeFilters>
+  <slot slotNumber="0" slotType="Open">
+    <indicatorName>Price Move</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Enter long after an upward move</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Open</value>
+    </listParam>
+    <numParam paramNumber="0">
+      <caption>Price move</caption>
+      <value>20</value>
+    </numParam>
+    <checkParam paramNumber="0">
+      <caption>Use previous bar value</caption>
+      <value>False</value>
+    </checkParam>
+  </slot>
+  <slot slotNumber="1" slotType="Close">
+    <indicatorName>Bar Closing</indicatorName>
+    <listParam paramNumber="0">
+      <caption>Logic</caption>
+      <index>0</index>
+      <value>Exit the market at the end of the bar</value>
+    </listParam>
+    <listParam paramNumber="1">
+      <caption>Base price</caption>
+      <index>0</index>
+      <value>Close</value>
+    </listParam>
+  </slot>
+</strategy>

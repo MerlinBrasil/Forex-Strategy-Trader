@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<color>
+	<!--	General -->
+	<FormBack r="40" g="40" b="20" />
+	<ControlBack r="0" g="0" b="0" />
+	<ControlText r="0" g="230" b="0" />
+	<CaptionBack r="110" g="160" b="50" />
+	<CaptionText r="0" g="0" b="0" />
+	<EvenRowBack r="0" g="0" b="0" />
+	<SignalRed r="250" g="0" b="0" />
+
+	<!--	Indicator Slots -->
+	<SlotCaptionBackProperties r="150" g="90" b="90" />
+	<SlotCaptionBackOpen r="110" g="160" b="50" />
+	<SlotCaptionBackOpenFilter r="100" g="150" b="150" />
+	<SlotCaptionBackClose r="205" g="100" b="50" />
+	<SlotCaptionBackCloseFilter r="210" g="140" b="140" />
+	<SlotCaptionText r="0" g="0" b="0" />
+	<SlotBack r="0" g="0" b="0" />
+	<SlotIndicatorText r="255" g="215" b="0" />
+	<SlotLogicText r="0" g="230" b="0" />
+	<SlotParamText r="0" g="230" b="0" />
+	<SlotValueText r="0" g="230" b="0" />
+	<SlotDash r="0" g="230" b="0" />
+
+	<!--	Charts -->
+	<ChartBack r="0" g="0" b="0" />
+	<ChartFore r="0" g="230" b="0" />
+	<BarWhite r="30" g="30" b="30" />
+	<BarBlack r="225" g="225" b="225" />
+	<BarBorder r="0" g="255" b="0" />
+	<TradeLong r="30" g="160" b="30" />
+	<TradeShort r="225" g="30" b="30" />
+	<TradeClose r="225" g="160" b="30" />
+	<Volume r="150" g="0" b="210" />
+	<LabelBack r="255" g="255" b="0" />
+	<LabelText r="0" g="0" b="0" />
+	<ChartGrid r="40" g="80" b="0" />
+	<ChartCross r="130" g="140" b="10" />
+	<ChartBalanceLine r="150" g="240" b="190" />
+	<ChartEquityLine r="225" g="160" b="30" />
+</color>

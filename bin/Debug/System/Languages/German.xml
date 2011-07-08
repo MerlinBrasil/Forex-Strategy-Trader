@@ -1,0 +1,1617 @@
+<?xml version="1.0"?>
+<lang>
+  <!-- Language (This will appear in the menu.) -->
+  <language>German</language>
+  <!-- Credits -->
+  <translatedby>Erich Weber</translatedby>
+  <website>http:\\forexsb.com</website>
+  <corrections>info@forexsb.com</corrections>
+  <!-- Common -->
+  <str>
+    <main>Yes</main>
+    <alt>Ja</alt>
+  </str>
+  <str>
+    <main>No</main>
+    <alt>Nein</alt>
+  </str>
+  <str>
+    <main>Ok</main>
+    <alt>Ok</alt>
+  </str>
+  <str>
+    <main>Default</main>
+    <alt>Default</alt>
+  </str>
+  <str>
+    <main>Cancel</main>
+    <alt>Abbrechen</alt>
+  </str>
+  <str>
+    <main>Accept</main>
+    <alt>Akzeptieren</alt>
+  </str>
+  <str>
+    <main>Delete</main>
+    <alt>Löschen</alt>
+  </str>
+  <str>
+    <main>Error</main>
+    <alt>Fehler</alt>
+  </str>
+  <str>
+    <main>Beta</main>
+    <alt>Beta</alt>
+  </str>
+  <str>
+    <main>Up</main>
+    <alt>Rauf</alt>
+  </str>
+  <str>
+    <main>Move Up</main>
+    <alt>Aufwärtsbewegung</alt>
+  </str>
+  <str>
+    <main>Down</main>
+    <alt>Runter</alt>
+  </str>
+  <str>
+    <main>Move Down</main>
+    <alt>Abwärtsbewegung</alt>
+  </str>
+  <str>
+    <main>Duplicate</main>
+    <alt>Duplikat</alt>
+  </str>
+  <str>
+    <main>lot</main>
+    <alt>Lot</alt>
+  </str>
+  <str>
+    <main>lots</main>
+    <alt>Lots</alt>
+  </str>
+  <str>
+    <main>pip</main>
+    <alt>PIP</alt>
+  </str>
+  <str>
+    <main>pips</main>
+    <alt>PIPS</alt>
+  </str>
+  <str>
+    <main>money</main>
+    <alt>Geld</alt>
+  </str>
+  <str>
+    <main>None</main>
+    <alt>Nichts</alt>
+  </str>
+  <!-- Data Periods -->
+  <str>
+    <main>Data time frame.</main>
+    <alt>Datenzeitfenster</alt>
+  </str>
+  <str>
+    <main>Minute</main>
+    <alt>Minute</alt>
+  </str>
+  <str>
+    <main>Minutes</main>
+    <alt>Minuten</alt>
+  </str>
+  <str>
+    <main>Hour</main>
+    <alt>Stunde</alt>
+  </str>
+  <str>
+    <main>Hours</main>
+    <alt>Stunden</alt>
+  </str>
+  <str>
+    <main>Day</main>
+    <alt>Tag</alt>
+  </str>
+  <str>
+    <main>Week</main>
+    <alt>Woche</alt>
+  </str>
+  <!-- Main Menu -->
+  <str>
+    <main>File</main>
+    <alt>Datei</alt>
+  </str>
+  <str>
+    <main>New</main>
+    <alt>Neu</alt>
+  </str>
+  <str>
+    <main>Open the default strategy "New.xml".</main>
+    <alt>Default-Strategie "New.xml" öffnen.</alt>
+  </str>
+  <str>
+    <main>Open...</main>
+    <alt>Öffnen...</alt>
+  </str>
+  <str>
+    <main>Open a strategy.</main>
+    <alt>Strategie öffnen.</alt>
+  </str>
+  <str>
+    <main>Save</main>
+    <alt>Speichern</alt>
+  </str>
+  <str>
+    <main>Save the strategy.</main>
+    <alt>Strategie speichern.</alt>
+  </str>
+  <str>
+    <main>Save As</main>
+    <alt>Speichern unter</alt>
+  </str>
+  <str>
+    <main>Save a copy of the strategy.</main>
+    <alt>Kopie der Strategie speichern.</alt>
+  </str>
+  <str>
+    <main>Exit</main>
+    <alt>Verlassen</alt>
+  </str>
+  <str>
+    <main>Close the program.</main>
+    <alt>Programm beenden.</alt>
+  </str>
+  <str>
+    <main>Edit</main>
+    <alt>Bearbeiten</alt>
+  </str>
+  <str>
+    <main>Undo</main>
+    <alt>Rückgängig</alt>
+  </str>
+  <str>
+    <main>Undo the last change in the strategy.</main>
+    <alt>Letzte Änderung an der Strategie rückgängig machen.</alt>
+  </str>
+  <str>
+    <main>Copy Strategy</main>
+    <alt>Copy Strategy</alt>
+  </str>
+  <str>
+    <main>Copy the entire strategy to the clipboard.</main>
+    <alt>Copy the entire strategy to the clipboard.</alt>
+  </str>
+  <str>
+    <main>Paste Strategy</main>
+    <alt>Paste Strategy</alt>
+  </str>
+  <str>
+    <main>Load a strategy from the clipboard.</main>
+    <alt>Load a strategy from the clipboard.</alt>
+  </str>
+  <str>
+    <main>View</main>
+    <alt>Anzeigen</alt>
+  </str>
+  <str>
+    <main>Language</main>
+    <alt>Sprache</alt>
+  </str>
+  <str>
+    <main>Language Tools</main>
+    <alt>Sprachwerkzeuge</alt>
+  </str>
+  <str>
+    <main>Make New Translation</main>
+    <alt>Neue Übersetzung erstellen</alt>
+  </str>
+  <str>
+    <main>Edit Current Translation</main>
+    <alt>Aktuelle Übersetzung bearbeiten</alt>
+  </str>
+  <str>
+    <main>Show English Phrases</main>
+    <alt>Englische Phrasen zeigen</alt>
+  </str>
+  <str>
+    <main>Show Translated Phrases</main>
+    <alt>Übersetzte Phrasen zeigen</alt>
+  </str>
+  <str>
+    <main>Show All Phrases</main>
+    <alt>Alle Phrasen anzeigen</alt>
+  </str>
+  <str>
+    <main>Status page</main>
+    <alt>Statusseite</alt>
+  </str>
+  <str>
+    <main>Strategy page</main>
+    <alt>Strategieseite</alt>
+  </str>
+  <str>
+    <main>Chart page</main>
+    <alt>Chartseite</alt>
+  </str>
+  <str>
+    <main>Account page</main>
+    <alt>Kontoseite</alt>
+  </str>
+  <str>
+    <main>Journal page</main>
+    <alt>Journalseite</alt>
+  </str>
+  <str>
+    <main>Operation page</main>
+    <alt>Bedienungsseite</alt>
+  </str>
+  <str>
+    <main>Gradient View</main>
+    <alt>Farbverlauf</alt>
+  </str>
+  <str>
+    <main>Colour Scheme</main>
+    <alt>Farbschema</alt>
+  </str>
+  <str>
+    <main>Strategy</main>
+    <alt>Strategie</alt>
+  </str>
+  <str>
+    <main>Overview</main>
+    <alt>Übersicht</alt>
+  </str>
+  <str>
+    <main>See the strategy overview.</main>
+    <alt>Strategieübersicht anzeigen</alt>
+  </str>
+  <str>
+    <main>Use Logical Groups</main>
+    <alt>Logische Gruppen benützen</alt>
+  </str>
+  <str>
+    <main>Groups add AND and OR logic interaction of the indicators.</main>
+    <alt>Gruppen fügen ADD und OR Logik zu Indikatoren hinzu.</alt>
+  </str>
+  <str>
+    <main>Max number of Opening Logic Conditions</main>
+    <alt>Maximale Anzahl an Eröffnungsbedingungen</alt>
+  </str>
+  <str>
+    <main>Max number of Closing Logic Conditions</main>
+    <alt>Maximale Anzahl an Schließbedingungen</alt>
+  </str>
+  <str>
+    <main>Publish</main>
+    <alt>Veröffentlichen</alt>
+  </str>
+  <str>
+    <main>Publish the strategy in the program's forum.</main>
+    <alt>Strategie im Programmforum veröffentlichen.</alt>
+  </str>
+  <str>
+    <main>Remember the Last Strategy</main>
+    <alt>Letzte Strategie merken.</alt>
+  </str>
+  <str>
+    <main>Load the last used strategy at startup.</main>
+    <alt>Zuletzt benützte Strategie beim Start laden.</alt>
+  </str>
+  <str>
+    <main>Auto Control of "Use previous bar value"</main>
+    <alt>Automatische Steuerung von "Benütze Wert von voriger Kerze".</alt>
+  </str>
+  <str>
+    <main>Provides automatic setting of the indicators' check box "Use previous bar value".</main>
+    <alt>Bietet automatische Kontrolle von "Benütze Wert von voriger Kerze" bei Indikatoren.</alt>
+  </str>
+  <str>
+    <main>Trade Settings</main>
+    <alt>Trade-Einstellungen</alt>
+  </str>
+  <str>
+    <main>Tools</main>
+    <alt>Werkzeuge</alt>
+  </str>
+  <str>
+    <main>Custom Indicators</main>
+    <alt>Angepasste Indikatoren</alt>
+  </str>
+  <str>
+    <main>Reload the Custom Indicators</main>
+    <alt>Angepasste Indikatoren neu laden</alt>
+  </str>
+  <str>
+    <main>Open the Source Files Folder</main>
+    <alt>Quelldatei-Ordner öffnen</alt>
+  </str>
+  <str>
+    <main>Custom Indicators Forum</main>
+    <alt>Forum für angepasste Indikatoren</alt>
+  </str>
+  <str>
+    <main>Check the Custom Indicators</main>
+    <alt>Angepasste Indikatoren prüfen</alt>
+  </str>
+  <str>
+    <main>Load the Custom Indicators at Startup</main>
+    <alt>Angepasste Indikatoren bei Programmstart laden</alt>
+  </str>
+  <str>
+    <main>Show the Loaded Custom Indicators</main>
+    <alt>Geladene angepasste Indikatoren anzeigen</alt>
+  </str>
+  <str>
+    <main>Allow multiple working copies of FST</main>
+    <alt>Mehrere Instanzen von FST erlauben</alt>
+  </str>
+  <str>
+    <main>Play Sounds</main>
+    <alt>Sounds abspielen</alt>
+  </str>
+  <str>
+    <main>Install MetaTrader Files</main>
+    <alt>Metatrader-Dateien installieren</alt>
+  </str>
+  <str>
+    <main>Install the necessary files in the MetaTrader's folder.</main>
+    <alt>Installiere die nötigen Dateien im Metatrader Ordner.</alt>
+  </str>
+  <str>
+    <main>Reset Data and Statistics</main>
+    <alt>Daten und Statistiken zurücksetzen</alt>
+  </str>
+  <str>
+    <main>Reset the loaded data and statistics. It will stop the auto trading!</main>
+    <alt>Geladene Daten und Statistiken zurücksetzen. Autotrading wird gestoppt!</alt>
+  </str>
+  <str>
+    <main>Reset Settings</main>
+    <alt>Einstellungen zurücksetzen</alt>
+  </str>
+  <str>
+    <main>Reset the program settings to their default values. You need to restart!</main>
+    <alt>Programmeinstellungen auf ihre Defaultwerte zurücksetzen. Neustart erforderlich!</alt>
+  </str>
+  <str>
+    <main>Help</main>
+    <alt>Hilfe</alt>
+  </str>
+  <str>
+    <main>Contribute</main>
+    <alt>Mitwirken</alt>
+  </str>
+  <str>
+    <main>Donate, Support, Advertise!</main>
+    <alt>Spenden, Unterstützung, Werbung!</alt>
+  </str>
+  <str>
+    <main>Tip of the Day</main>
+    <alt>Tip des Tages</alt>
+  </str>
+  <str>
+    <main>Show a tip.</main>
+    <alt>Tip anzeigen.</alt>
+  </str>
+  <str>
+    <main>Safety First</main>
+    <alt>Sicherheit zuerst</alt>
+  </str>
+  <str>
+    <main>Show the "Safety First" web page.</main>
+    <alt>Zeige die "Sicherheit zuerst" Webseite.</alt>
+  </str>
+  <str>
+    <main>Quick Start Guide</main>
+    <alt>Schnellstart-Guide</alt>
+  </str>
+  <str>
+    <main>Show the quick start guide.</main>
+    <alt>Zeigt den Schnellstart-Guide.</alt>
+  </str>
+  <str>
+    <main>Online Help</main>
+    <alt>Online Hilfe</alt>
+  </str>
+  <str>
+    <main>Show the online help.</main>
+    <alt>Zeigt die Online-Hilfe.</alt>
+  </str>
+  <str>
+    <main>Support Forum</main>
+    <alt>Support Forum</alt>
+  </str>
+  <str>
+    <main>Show the program's forum.</main>
+    <alt>Zeigt das Programmforum.</alt>
+  </str>
+  <str>
+    <main>Check for Updates at Startup</main>
+    <alt>Beim Start nach Updates suchen</alt>
+  </str>
+  <str>
+    <main>Check for New Beta Versions</main>
+    <alt>Auf neue Betaversionen prüfen</alt>
+  </str>
+  <str>
+    <main>About</main>
+    <alt>Über</alt>
+  </str>
+  <str>
+    <main>Show the program information.</main>
+    <alt>Zeigt Programminformationen.</alt>
+  </str>
+  <str>
+    <main>Forex</main>
+    <alt>Forex</alt>
+  </str>
+  <str>
+    <main>Economic Calendar</main>
+    <alt>Wirtschaftskalender</alt>
+  </str>
+  <str>
+    <main>Market Commentary</main>
+    <alt>Marktkommentare</alt>
+  </str>
+  <str>
+    <main>Daily Forex Outlook</main>
+    <alt>Tägliche Forex-Vorschau</alt>
+  </str>
+  <str>
+    <main>Weekly Forex Outlook</main>
+    <alt>Wöchentliche Forex-Vorschau</alt>
+  </str>
+  <str>
+    <main>Forex Brokers</main>
+    <alt>Forex Broker</alt>
+  </str>
+  <str>
+    <main>New Version</main>
+    <alt>Neue Version</alt>
+  </str>
+  <str>
+    <main>New Beta</main>
+    <alt>Neue Beta</alt>
+  </str>
+  <str>
+    <main>Forum</main>
+    <alt>Forum</alt>
+  </str>
+  <str>
+    <main>Print</main>
+    <alt>Drucken</alt>
+  </str>
+  <str>
+    <main>Print Preview</main>
+    <alt>Durckvorschau</alt>
+  </str>
+  <str>
+    <main>Page Setup</main>
+    <alt>Seite einrichten</alt>
+  </str>
+  <str>
+    <main>Properties</main>
+    <alt>Eigenschaften</alt>
+  </str>
+  <!-- Trade Strip -->
+  <str>
+    <main>Help me get connected!</main>
+    <alt>Hilf mit bei Verbindungsherstellung!</alt>
+  </str>
+  <str>
+    <main>Set connection ID</main>
+    <alt>Verbindungs-ID festlegen</alt>
+  </str>
+  <str>
+    <main>Click to change the connection ID.</main>
+    <alt>Klicken um Verbindungs-ID zu ändern.</alt>
+  </str>
+  <str>
+    <main>Start Automatic Execution</main>
+    <alt>Automatische Ausführung starten</alt>
+  </str>
+  <str>
+    <main>Stop Automatic Execution</main>
+    <alt>Automatische Ausführung anhalten</alt>
+  </str>
+  <str>
+    <main>Beta version. Test carefully!</main>
+    <alt>Betaversion. Vorsichtig testen!</alt>
+  </str>
+  <!-- Status Page -->
+  <str>
+    <main>Status</main>
+    <alt>Status</alt>
+  </str>
+  <str>
+    <main>Connection Status</main>
+    <alt>Verbindungsstatus</alt>
+  </str>
+  <str>
+    <main>Not Connected</main>
+    <alt>Nicht verbunden</alt>
+  </str>
+  <str>
+    <main>Not Connected. You have to connect to a MetaTrader terminal.</main>
+    <alt>Nicht verbunden. Sie müssen sich mit einem Metatrader-Terminal verbinden.</alt>
+  </str>
+  <str>
+    <main>Connected to a MetaTrader terminal.</main>
+    <alt>Mit Metatrader-Terminal verbunden.</alt>
+  </str>
+  <str>
+    <main>Connected to</main>
+    <alt>Verbinden zu</alt>
+  </str>
+  <str>
+    <main>by</main>
+    <alt>durch</alt>
+  </str>
+  <str>
+    <main>Data Info</main>
+    <alt>Dateninfo</alt>
+  </str>
+  <str>
+    <main>Market Info</main>
+    <alt>Marktinfo</alt>
+  </str>
+  <str>
+    <main>Account Info</main>
+    <alt>Kontoinfo</alt>
+  </str>
+  <str>
+    <main>Loaded Bars</main>
+    <alt>Geladene Kerzen</alt>
+  </str>
+  <str>
+    <main>Market Information</main>
+    <alt>Marktinformation</alt>
+  </str>
+  <str>
+    <main>Symbol</main>
+    <alt>Symbol</alt>
+  </str>
+  <str>
+    <main>Period</main>
+    <alt>Periode</alt>
+  </str>
+  <str>
+    <main>Lot size</main>
+    <alt>Lot-Größe</alt>
+  </str>
+  <str>
+    <main>Point</main>
+    <alt>Punkt</alt>
+  </str>
+  <str>
+    <main>Spread</main>
+    <alt>Spread</alt>
+  </str>
+  <str>
+    <main>Swap long</main>
+    <alt>Swap long</alt>
+  </str>
+  <str>
+    <main>Swap short</main>
+    <alt>Swap short</alt>
+  </str>
+  <str>
+    <main>Useful Links</main>
+    <alt>Nützliche LInks</alt>
+  </str>
+  <!-- Strategy Page -->
+  <str>
+    <main>Show the strategy description.</main>
+    <alt>Zeige die Strategiebeschreibung</alt>
+  </str>
+  <str>
+    <main>Expand the information in the strategy slots.</main>
+    <alt>Erweitere Anzeige in den Strategie-Slots.</alt>
+  </str>
+  <str>
+    <main>Reduce the information in the strategy slots.</main>
+    <alt>Verkürze Anzeige in den Strategie-Slots.</alt>
+  </str>
+  <str>
+    <main>Edit the strategy description.</main>
+    <alt>Bearbeite die Strategie-Beschreibung.</alt>
+  </str>
+  <str>
+    <main>Trade settings.</main>
+    <alt>Trade-Einstellungen.</alt>
+  </str>
+  <str>
+    <main>Strategy Properties</main>
+    <alt>Strategie Eigenschaften</alt>
+  </str>
+  <str>
+    <main>Opening Point of the Position</main>
+    <alt>Eröffnungs-PUNKT der Position</alt>
+  </str>
+  <str>
+    <main>Opening Logic Condition</main>
+    <alt>Eröffnungs-LOGIK-Bedingung</alt>
+  </str>
+  <str>
+    <main>Closing Point of the Position</main>
+    <alt>Schließ-PUNKT der Position</alt>
+  </str>
+  <str>
+    <main>Closing Logic Condition</main>
+    <alt>Schließ-LOGIK-Bedingung</alt>
+  </str>
+  <str>
+    <main>Add an Opening Logic Condition</main>
+    <alt>Eröffnungs-LOGIK-Bedingung hinzufügen</alt>
+  </str>
+  <str>
+    <main>Add a new entry logic slot to the strategy.</main>
+    <alt>Neuen Eröffnungs-Logik-Slot zur Strategie hinzufügen.</alt>
+  </str>
+  <str>
+    <main>Add a Closing Logic Condition</main>
+    <alt>Schließ-Logik-Bedingung hinzufügen</alt>
+  </str>
+  <str>
+    <main>Add a new exit logic slot to the strategy.</main>
+    <alt>Neuen Schließ-Logik-Slot zur Strategie hinzufügen.</alt>
+  </str>
+  <str>
+    <main>You can use Closing Logic Conditions only if the Closing Point of the Position slot contains one of the following indicators:</main>
+    <alt>Sie können Schließ-Logik-Bedingungen nur nützen, wenn der Schließ-Punkt-Slot einen folgender Indikatoren enhält:</alt>
+  </str>
+  <str>
+    <main>Discard the logic condition.</main>
+    <alt>Logik-Bedingung verwerfen.</alt>
+  </str>
+  <str>
+    <main>Long position logic.</main>
+    <alt>Long-Position-Logik.</alt>
+  </str>
+  <str>
+    <main>Averaging, Trading size, Protection.</main>
+    <alt>Mittelung, Tradegröße, Absicherung.</alt>
+  </str>
+  <str>
+    <main>Same direction signal</main>
+    <alt>Signal in gleicher Richtung</alt>
+  </str>
+  <str>
+    <main>Add</main>
+    <alt>Hinzufügen</alt>
+  </str>
+  <str>
+    <main>Winner</main>
+    <alt>Gewinner</alt>
+  </str>
+  <str>
+    <main>Nothing</main>
+    <alt>Nichts</alt>
+  </str>
+  <str>
+    <main>Opposite direction signal</main>
+    <alt>Gegenläufiges Signal</alt>
+  </str>
+  <str>
+    <main>Reduce</main>
+    <alt>Vermindern</alt>
+  </str>
+  <str>
+    <main>Permanent Stop Loss</main>
+    <alt>Permanentes Stop Loss</alt>
+  </str>
+  <str>
+    <main>Permanent Take Profit</main>
+    <alt>Permanentes Take Profit</alt>
+  </str>
+  <!-- Chart Page -->
+  <str>
+    <main>Chart</main>
+    <alt>Chart</alt>
+  </str>
+  <str>
+    <main>Grid</main>
+    <alt>Raster</alt>
+  </str>
+  <str>
+    <main>Cross</main>
+    <alt>Fadenkreuz</alt>
+  </str>
+  <str>
+    <main>Volume</main>
+    <alt>Volumen</alt>
+  </str>
+  <str>
+    <main>Orders</main>
+    <alt>Aufträge</alt>
+  </str>
+  <str>
+    <main>Position lots</main>
+    <alt>Lots der Position</alt>
+  </str>
+  <str>
+    <main>Zoom in</main>
+    <alt>Hineinzoomen</alt>
+  </str>
+  <str>
+    <main>Zoom out</main>
+    <alt>Herauszoomen</alt>
+  </str>
+  <str>
+    <main>Refresh chart</main>
+    <alt>Chart aktualisieren</alt>
+  </str>
+  <str>
+    <main>Chart shift</main>
+    <alt>Chart verschieben</alt>
+  </str>
+  <str>
+    <main>Auto scroll</main>
+    <alt>Automatisch rollen</alt>
+  </str>
+  <str>
+    <main>Show / hide info panel</main>
+    <alt>Zeigen/Verstecken des Info-Panels.</alt>
+  </str>
+  <str>
+    <main>Move info up</main>
+    <alt>Info nach oben schieben</alt>
+  </str>
+  <str>
+    <main>Move info down</main>
+    <alt>Info nach unten schieben</alt>
+  </str>
+  <str>
+    <main>Bar number</main>
+    <alt>Kerzen-Nr.</alt>
+  </str>
+  <str>
+    <main>Date</main>
+    <alt>Datum</alt>
+  </str>
+  <str>
+    <main>Opening time</main>
+    <alt>Eröffnungszeit</alt>
+  </str>
+  <str>
+    <main>Opening price</main>
+    <alt>Eröffnungskurs</alt>
+  </str>
+  <str>
+    <main>Highest price</main>
+    <alt>Höchster Kurs</alt>
+  </str>
+  <str>
+    <main>Lowest price</main>
+    <alt>Tiefster Kurs</alt>
+  </str>
+  <str>
+    <main>Closing price</main>
+    <alt>Schlußkurs</alt>
+  </str>
+  <str>
+    <main>Position direction</main>
+    <alt>Positionsrichtung</alt>
+  </str>
+  <str>
+    <main>Open lots</main>
+    <alt>Eröffnungs-Lots</alt>
+  </str>
+  <str>
+    <main>Position price</main>
+    <alt>Positions-Preis</alt>
+  </str>
+  <str>
+    <main>Square</main>
+    <alt>Keine Positionierung</alt>
+  </str>
+  <!-- Account Page -->
+  <str>
+    <main>Account</main>
+    <alt>Konto</alt>
+  </str>
+  <str>
+    <main>Balance / Equity Chart</main>
+    <alt>Konto / Equity Chart</alt>
+  </str>
+  <!-- Journal Page -->
+  <str>
+    <main>Journal</main>
+    <alt>Journal</alt>
+  </str>
+  <str>
+    <main>Time</main>
+    <alt>Zeit</alt>
+  </str>
+  <str>
+    <main>Message</main>
+    <alt>Nachricht</alt>
+  </str>
+  <str>
+    <main>Clear journal's messages.</main>
+    <alt>Journalnachrichten löschen.</alt>
+  </str>
+  <str>
+    <main>Maximum messages in the journal.</main>
+    <alt>Maximum messages in the journal.</alt>
+  </str>
+  <str>
+    <main>Show incoming ticks.</main>
+    <alt>Eintreffende Ticks zeigen.</alt>
+  </str>
+  <str>
+    <main>Show system messages.</main>
+    <alt>Systemnachrichten zeigen.</alt>
+  </str>
+  <str>
+    <main>Account Balance</main>
+    <alt>Kontostand</alt>
+  </str>
+  <str>
+    <main>Equity</main>
+    <alt>Equity</alt>
+  </str>
+  <str>
+    <main>Profit</main>
+    <alt>Profit</alt>
+  </str>
+  <str>
+    <main>Free Margin</main>
+    <alt>Freie Margin</alt>
+  </str>
+  <str>
+    <main>loaded successfully.</main>
+    <alt>Erfolgreich geladen.</alt>
+  </str>
+  <str>
+    <main>Successful ping.</main>
+    <alt>Erfolgreicher Ping.</alt>
+  </str>
+  <str>
+    <main>Unsuccessful ping</main>
+    <alt>Ping fehlgeschlagen</alt>
+  </str>
+  <str>
+    <main>Tick received after an unsuccessful ping.</main>
+    <alt>Tick nach fehlgeschlagenem Ping erhalten.</alt>
+  </str>
+  <str>
+    <main>Tick received from a different chart!</main>
+    <alt>Tick von anderem Chart erhalten!</alt>
+  </str>
+  <str>
+    <main>Cannot update market info.</main>
+    <alt>Kann Marktinfo nicht aktualisieren.</alt>
+  </str>
+  <str>
+    <main>Cannot receive bars!</main>
+    <alt>Kann Kerzen nicht empfangen!</alt>
+  </str>
+  <str>
+    <main>Cannot receive enough bars!</main>
+    <alt>Kann nicht genug Kerzen empfangen!</alt>
+  </str>
+  <str>
+    <main>Enough bars received!</main>
+    <alt>Genug Kerzen empfangen!</alt>
+  </str>
+  <str>
+    <main>Market data updated, bars downloaded.</main>
+    <alt>Marktdaten aktualisiert, Kerzen empfangen.</alt>
+  </str>
+  <str>
+    <main>Cannot receive account information!</main>
+    <alt>Kann Kontoinformation nicht empfangen!</alt>
+  </str>
+  <str>
+    <main>Account information received.</main>
+    <alt>Kontoinformation empfangen.</alt>
+  </str>
+  <str>
+    <main>A Bar Open event!</main>
+    <alt>Ein Kerzen-Eröffnungs-Ereignis!</alt>
+  </str>
+  <str>
+    <main>A Bar Close event!</main>
+    <alt>Ein Kerzen-Schluß-Ereignis!</alt>
+  </str>
+  <str>
+    <main>A new tick arrived after a Bar Close event!</main>
+    <alt>Neuer Tick nach Kerzen-Schluß eingetroffen!</alt>
+  </str>
+  <str>
+    <main>Automatic trade started.</main>
+    <alt>Automatischer Handel gestartet.</alt>
+  </str>
+  <str>
+    <main>Automatic trade stopped.</main>
+    <alt>Automatischer Handel gestoppt.</alt>
+  </str>
+  <str>
+    <main>An entry order sent</main>
+    <alt>Neuer Eröffnungs-Auftrag gesendet</alt>
+  </str>
+  <str>
+    <main>An exit order sent</main>
+    <alt>Schließ-Auftrag gesendet</alt>
+  </str>
+  <str>
+    <main>A modify order sent</main>
+    <alt>Änderungs-Auftrag gesendet</alt>
+  </str>
+  <str>
+    <main>MetaTrader failed to execute order! Returned</main>
+    <alt>MetaTrader failed to execute order! Returned</alt>
+  </str>
+  <str>
+    <main>There is no connection with MetaTrader.</main>
+    <alt>Keine Verbindung zu Metatrader.</alt>
+  </str>
+  <str>
+    <main>Operation execution</main>
+    <alt>Auftrag ausgeführt</alt>
+  </str>
+  <str>
+    <main>MetaTrader is not responding!</main>
+    <alt>Metatrader antwortet nicht!</alt>
+  </str>
+  <!-- Operation Page -->
+  <str>
+    <main>Operation</main>
+    <alt>Auftrag</alt>
+  </str>
+  <str>
+    <main>Manual Operation Execution</main>
+    <alt>Manuel Auftrags-Ausführung</alt>
+  </str>
+  <str>
+    <main>Lots</main>
+    <alt>Lots</alt>
+  </str>
+  <str>
+    <main>Slippage</main>
+    <alt>Slippage</alt>
+  </str>
+  <str>
+    <main>Buy</main>
+    <alt>Kaufen</alt>
+  </str>
+  <str>
+    <main>Sell</main>
+    <alt>Verkaufen</alt>
+  </str>
+  <str>
+    <main>Close</main>
+    <alt>Schließen</alt>
+  </str>
+  <str>
+    <main>Modify Stop Loss and Take Profit</main>
+    <alt>Stop Loss und Take Profit ändern</alt>
+  </str>
+  <str>
+    <main>Tick Chart</main>
+    <alt>Tick Chart</alt>
+  </str>
+  <str>
+    <main>Trailing Stop</main>
+    <alt>Trailing Stop</alt>
+  </str>
+  <!--Status Bar -->
+  <str>
+    <main>Long</main>
+    <alt>Long</alt>
+  </str>
+  <str>
+    <main>Short</main>
+    <alt>Short</alt>
+  </str>
+  <str>
+    <main>at</main>
+    <alt>zu</alt>
+  </str>
+  <str>
+    <main>Stop Loss</main>
+    <alt>Stop Loss</alt>
+  </str>
+  <str>
+    <main>Take Profit</main>
+    <alt>Take Profit</alt>
+  </str>
+  <!-- About Screen -->
+  <str>
+    <main>Program version</main>
+    <alt>Programmversion</alt>
+  </str>
+  <str>
+    <main>Library version</main>
+    <alt>Bibliotheksversion</alt>
+  </str>
+  <str>
+    <main>Expert version</main>
+    <alt>Expertenversion</alt>
+  </str>
+  <str>
+    <main>Distributor</main>
+    <alt>Distributor</alt>
+  </str>
+  <str>
+    <main>This is a freeware program!</main>
+    <alt>Dies ist ein Freeware-Programm!</alt>
+  </str>
+  <str>
+    <main>Website</main>
+    <alt>Website</alt>
+  </str>
+  <str>
+    <main>Support forum</main>
+    <alt>Support Forum</alt>
+  </str>
+  <str>
+    <main>Contacts</main>
+    <alt>Kontakte</alt>
+  </str>
+  <!-- Indicator Parameters -->
+  <str>
+    <main>Logic and Parameters of the Indicators</main>
+    <alt>Logik und Parameter der Indikatoren</alt>
+  </str>
+  <str>
+    <main>All</main>
+    <alt>Alle</alt>
+  </str>
+  <str>
+    <main>Indicators</main>
+    <alt>Indikatoren</alt>
+  </str>
+  <str>
+    <main>Oscillator of Indicators</main>
+    <alt>Oszillatoren auf Indikatoren</alt>
+  </str>
+  <str>
+    <main>Indicator's MA Oscillator</main>
+    <alt>MA-Oszillatoren des Indikators</alt>
+  </str>
+  <str>
+    <main>Date/Time Functions</main>
+    <alt>Datum/Zeit-Funktionen</alt>
+  </str>
+  <str>
+    <main>Additional</main>
+    <alt>Zusätzlich</alt>
+  </str>
+  <str>
+    <main>Group</main>
+    <alt>Gruppe</alt>
+  </str>
+  <str>
+    <main>The logical group of the slot.</main>
+    <alt>Logische Gruppe des Slots</alt>
+  </str>
+  <!-- Strategy Overview -->
+  <str>
+    <main>Strategy Overview</main>
+    <alt>Strategieübersicht</alt>
+  </str>
+  <str>
+    <main>Author's Description</main>
+    <alt>Beschreibung des Autors</alt>
+  </str>
+  <str>
+    <main>Generated Description</main>
+    <alt>Generierte Beschreibung</alt>
+  </str>
+  <str>
+    <main>There isn't a description.</main>
+    <alt>Es gibt keine Beschreibung.</alt>
+  </str>
+  <str>
+    <main>Logic</main>
+    <alt>Logik</alt>
+  </str>
+  <str>
+    <main>Always trade a constant number of lots.</main>
+    <alt>Immer konstante Anzahl von Lots handeln.</alt>
+  </str>
+  <str>
+    <main>Opening of a new position</main>
+    <alt>Eröffnung einer neuen Position</alt>
+  </str>
+  <str>
+    <main>Adding to a winning position</main>
+    <alt>Hinzufügen zu einer Gewinnposition</alt>
+  </str>
+  <str>
+    <main>Adding to a position</main>
+    <alt>Hinzufügen zu einer Position</alt>
+  </str>
+  <str>
+    <main>Reversing a position</main>
+    <alt>Umkehr einer Position</alt>
+  </str>
+  <str>
+    <main>Reducing a position</main>
+    <alt>Reduktion einer Position</alt>
+  </str>
+  <str>
+    <main>Do not open more than</main>
+    <alt>Nicht mehr öffnen als</alt>
+  </str>
+  <str>
+    <main>from the current position.</main>
+    <alt>von der aktuellen Position.</alt>
+  </str>
+  <str>
+    <main>in the opposite direction.</main>
+    <alt>in Gegenrichtung.</alt>
+  </str>
+  <str>
+    <main>Trade an account percent truncated to an acceptable number of lots.</main>
+    <alt>Handle prozentuellen Anteil vom Konto gerundet auf gültige Lotgröße.</alt>
+  </str>
+  <str>
+    <main>% of the account equity</main>
+    <alt>% der Equity</alt>
+  </str>
+  <str>
+    <main>for each open lot</main>
+    <alt>pro offenes Lot</alt>
+  </str>
+  <str>
+    <main>Open a new long position or add to an existing position</main>
+    <alt>Neue Longposition eröffnen oder zu bestehender hinzufügen</alt>
+  </str>
+  <str>
+    <main>Open a new long position or add to a winning position</main>
+    <alt>Neue Longposition eröffnen oder zu bestehendem Gewinner hinzufügen</alt>
+  </str>
+  <str>
+    <main>Open a new long position</main>
+    <alt>Neue Longposition öffnen</alt>
+  </str>
+  <str>
+    <main>or close a short position</main>
+    <alt>oder Shortposition schließen</alt>
+  </str>
+  <str>
+    <main>or reduce a short position</main>
+    <alt>oder Shortposition reduzieren</alt>
+  </str>
+  <str>
+    <main>or reverse a short position</main>
+    <alt>oder Shortposition umkehren</alt>
+  </str>
+  <str>
+    <main>when the following logic condition is satisfied</main>
+    <alt>wenn die folgende Logik-Bedingung erfüllt ist</alt>
+  </str>
+  <str>
+    <main>when</main>
+    <alt>wenn</alt>
+  </str>
+  <str>
+    <main>when all the following logic conditions are satisfied</main>
+    <alt>wenn alle der folgenden Logik-Bedingungen zutreffen</alt>
+  </str>
+  <str>
+    <main>logical group [#] is satisfied</main>
+    <alt>logische Gruppe [#] ist erfüllt</alt>
+  </str>
+  <str>
+    <main>Open a new short position or add to an existing position</main>
+    <alt>Neue Shortposition öffnen oder zu bestehender hinzufügen</alt>
+  </str>
+  <str>
+    <main>Open a new short position or add to a winning position</main>
+    <alt>Neue Shortposition öffnen oder zu bestehendem Gewinner hinzufügen</alt>
+  </str>
+  <str>
+    <main>Open a new short position</main>
+    <alt>Neue Shortposition öffnen</alt>
+  </str>
+  <str>
+    <main>or close a long position</main>
+    <alt>oder Longposition schließen</alt>
+  </str>
+  <str>
+    <main>or reduce a long position</main>
+    <alt>oder Longposition reduzieren</alt>
+  </str>
+  <str>
+    <main>or reverse a long position</main>
+    <alt>oder Longposition umkehren</alt>
+  </str>
+  <str>
+    <main>Close an existing long position</main>
+    <alt>Bestehende Longposition schließen</alt>
+  </str>
+  <str>
+    <main>Close an existing short position</main>
+    <alt>Bestehende Shortposition schließen</alt>
+  </str>
+  <str>
+    <main>when at least one of the following logic conditions is satisfied</main>
+    <alt>wenn mindestens eine der folgenden Logik-Bedingungen erfüllt ist</alt>
+  </str>
+  <str>
+    <main>and</main>
+    <alt>und</alt>
+  </str>
+  <str>
+    <main>or</main>
+    <alt>oder</alt>
+  </str>
+  <str>
+    <main>Entry signal in the direction of the present position:</main>
+    <alt>Einstiegssignal in Richtung der aktuellen Position:</alt>
+  </str>
+  <str>
+    <main>No averaging is allowed. Cancel any additional orders, which are in the same direction.</main>
+    <alt>Keine Mittelung erlaubt. Zusätzliche Aufträge stornieren die in die gleiche Richtung gehen.</alt>
+  </str>
+  <str>
+    <main>Add to a wining position but not to a losing one. If the position is at a loss, cancel the additional entry order. Do not exceed the maximum allowed number of lots to open.</main>
+    <alt>Zu einer Gewinnposition hinzufügen, nicht aber zu einer Verlustposition. Wenn die Position im Verlust ist, zusätzliche Aufträge stornieren. Nicht mehr als erlaubte Anzahl Lots öffnen.</alt>
+  </str>
+  <str>
+    <main>Add to the position regardless whether it is at a profit or loss. Do not exceed the maximum allowed number of lots to open.</main>
+    <alt>Zur Position hinzufügen, egal ob diese im Gewinn oder Verlust steht. Nicht mehr als erlaubte Anzahl Lots öffnen.</alt>
+  </str>
+  <str>
+    <main>Entry signal in the opposite direction:</main>
+    <alt>Einstiegssignal in Gegenrichtung:</alt>
+  </str>
+  <str>
+    <main>No modification of the present position is allowed. Cancel any additional orders, which are in the opposite direction.</main>
+    <alt>Keine Änderung der aktuellen Position erlaubt. Zusätzliche Aufträge stornieren die in Gegenrichtung gehen.</alt>
+  </str>
+  <str>
+    <main>Reduce the present position. If its amount is lower than or equal to the specified reducing lots, close it.</main>
+    <alt>Reduktion der aktuellen Position. Wenn Zahl kleiner oder gleich der spezifizierten Reduktionslots, dann schließen.</alt>
+  </str>
+  <str>
+    <main>Close the present position regardless of its amount or result. Do not open a new position until the next entry signal has been raised.</main>
+    <alt>Aktuelle Position schließen, unabhängi ob Gewinn oder Verlust. Keine neue Position bis zum nächsten Einstiegssignal.</alt>
+  </str>
+  <str>
+    <main>Close the existing position and open a new one in the opposite direction using the entry rules.</main>
+    <alt>Schließen der bestehenden Position und neue in Gegenrichtung gemäß Einstiegsregeln eröffnen.</alt>
+  </str>
+  <str>
+    <main>Opening (Entry Signal)</main>
+    <alt>Eröffnung (Einstiegssignal)</alt>
+  </str>
+  <str>
+    <main>Closing (Exit Signal)</main>
+    <alt>Schließen (Ausstiegssignal)</alt>
+  </str>
+  <str>
+    <main>The strategy doesn't use a Permanent Stop Loss.</main>
+    <alt>Die Strategie nützt kein permanentes Stop Loss.</alt>
+  </str>
+  <str>
+    <main>The Permanent Stop Loss limits the loss of a position to</main>
+    <alt>Das permanenten Stop Loss limitiert den Verlust einer Position auf</alt>
+  </str>
+  <str>
+    <main>pips plus the charged spread and rollover.</main>
+    <alt>PIPS plus zu verrechnendem Spread und Rollover.</alt>
+  </str>
+  <str>
+    <main>The strategy doesn't use a Permanent Take Profit.</main>
+    <alt>Die Strategie nützt kein permanentes Take Profit.</alt>
+  </str>
+  <str>
+    <main>The Permanent Take Profit closes a position at</main>
+    <alt>Das permanente Take Profit schließt eine Position bei</alt>
+  </str>
+  <str>
+    <main>pips profit reduced with the charged spread and rollover.</main>
+    <alt>PIPS Profit reduziert um den zu verrechnenden Spread und Rollover.</alt>
+  </str>
+  <str>
+    <main>The position's Stop Loss will be set to Break Even price when the profit reaches</main>
+    <alt>Das Stop Loss der Position wird auf Break Even bei folgendem Profit gesetzt</alt>
+  </str>
+  <str>
+    <main>Use the indicator value from the previous bar for all asterisk-marked indicators!</main>
+    <alt>Indikatorwert der vorherigen Kerze für alle mit * gekennzeichneten Indikatoren nützen!</alt>
+  </str>
+  <!-- Tip of the Day -->
+  <str>
+    <main>Loading...</main>
+    <alt>Laden...</alt>
+  </str>
+  <str>
+    <main>Show a tip</main>
+    <alt>Tip anzeigen</alt>
+  </str>
+  <str>
+    <main>Previous Tip</main>
+    <alt>Vorheriger Tip</alt>
+  </str>
+  <str>
+    <main>Next Tip</main>
+    <alt>Nächster Tip</alt>
+  </str>
+  <!-- Publish a Strategy -->
+  <str>
+    <main>Publish a Strategy</main>
+    <alt>Strategie veröffentlichen</alt>
+  </str>
+  <str>
+    <main>Publishing a strategy in the program's forum:</main>
+    <alt>Strategie im Programmforum veröffentlichen:</alt>
+  </str>
+  <str>
+    <main>Open a new topic in the forum</main>
+    <alt>Neues Thema im Forum eröffnen</alt>
+  </str>
+  <str>
+    <main>Copy / Paste the following code;</main>
+    <alt>Kopieren/Einfügen des folgenden Codes;</alt>
+  </str>
+  <str>
+    <main>Describe the strategy.</main>
+    <alt>Beschreiben Sie die Strategie.</alt>
+  </str>
+  <str>
+    <main>Connect to</main>
+    <alt>Verbinden zu</alt>
+  </str>
+  <!-- Strategy Description -->
+  <str>
+    <main>Description</main>
+    <alt>Beschreibung</alt>
+  </str>
+  <str>
+    <main>Strategy Description</main>
+    <alt>Strategiebeschreibung</alt>
+  </str>
+  <str>
+    <main>This description might be outdated!</main>
+    <alt>Diese Beschreibung könnte veraltet sein!</alt>
+  </str>
+  <str>
+    <main>You can write a description to the strategy!</main>
+    <alt>Sie können eine Beschreibung der Strategie verfassen!</alt>
+  </str>
+  <str>
+    <main>Clear</main>
+    <alt>Löschen</alt>
+  </str>
+  <!-- Strategy Properties -->
+  <str>
+    <main>Handling of Additional Entry Signals</main>
+    <alt>Handhabung von zusätzlichen Einstiegssignalen</alt>
+  </str>
+  <str>
+    <main>Next same direction signal behaviour</main>
+    <alt>Verhalten bei Signal in gleicher Richtung</alt>
+  </str>
+  <str>
+    <main>Nothing - cancels the additional orders.</main>
+    <alt>Nichts - storniert alle zusätzlichen Aufträge.</alt>
+  </str>
+  <str>
+    <main>Winner - adds to a winning position.</main>
+    <alt>Gewinner - stockt bei Gewinnposition auf.</alt>
+  </str>
+  <str>
+    <main>Add - adds to all positions.</main>
+    <alt>Hinzufügen - stockt bei allen Positionen auf.</alt>
+  </str>
+  <str>
+    <main>Next opposite direction signal behaviour</main>
+    <alt>Verhalten bei Signal in Gegenrichtung</alt>
+  </str>
+  <str>
+    <main>Reduce - reduces or closes a position.</main>
+    <alt>Reduzieren - reduziert oder schließt eine Position.</alt>
+  </str>
+  <str>
+    <main>Close - closes the position.</main>
+    <alt>Schließen - schließt die Position.</alt>
+  </str>
+  <str>
+    <main>Reverse</main>
+    <alt>Umkehren</alt>
+  </str>
+  <str>
+    <main>Reverse - reverses the position.</main>
+    <alt>Umkehren - dreht die Position um.</alt>
+  </str>
+  <str>
+    <main>Trading Size</main>
+    <alt>Trade-Größe</alt>
+  </str>
+  <str>
+    <main>Trade a constant number of lots</main>
+    <alt>Handle konstante Zahl von Lots</alt>
+  </str>
+  <str>
+    <main>Trade a variable number of lots depending on your current account equity. The percentage values show the part of the account equity used to cover the required margin.</main>
+    <alt>Handle veriable Lots je nach Größe der Equity. Der Prozentwert zeigt den Teil der Equity der zur Deckung des nötigen Margin verwendet wird.</alt>
+  </str>
+  <str>
+    <main>Maximum number of open lots</main>
+    <alt>Maximale Anzahl von offenen Lots</alt>
+  </str>
+  <str>
+    <main>Number of entry lots for a new position</main>
+    <alt>Anzahl von Einstiegs-Lots für neue Position</alt>
+  </str>
+  <str>
+    <main>In case of addition - number of lots to add</main>
+    <alt>Im Falle einer Aufstockung - Anzahl von zusätzlichen Lots</alt>
+  </str>
+  <str>
+    <main>In case of reduction - number of lots to close</main>
+    <alt>Im Falle einer Reduktion - Anzahl von zu schließenden Lots</alt>
+  </str>
+  <str>
+    <main>Permanent Protection</main>
+    <alt>Permanente Absicherung</alt>
+  </str>
+  <str>
+    <main>Break Even</main>
+    <alt>Break Even</alt>
+  </str>
+  <!-- Trade Settings -->
+  <str>
+    <main>Long logic rules base price</main>
+    <alt>Long-Bedingung steuert Basispreis</alt>
+  </str>
+  <str>
+    <main>'Bar Closing' time advance in seconds</main>
+    <alt>'Kerzen Schluß" voraus in Sekunden</alt>
+  </str>
+  <str>
+    <main>Auto slippage depending on the spread.</main>
+    <alt>Automatische Slippage abhängig von Spread</alt>
+  </str>
+  <str>
+    <main>Slippage for entry orders</main>
+    <alt>Slippage für Einstieg.</alt>
+  </str>
+  <str>
+    <main>Slippage for exit orders</main>
+    <alt>Slippage für Ausstieg.</alt>
+  </str>
+  <str>
+    <main>Minimum number of bars in the chart</main>
+    <alt>Minimale Anzahl von Kerzen im Chart</alt>
+  </str>
+  <str>
+    <main>Bid</main>
+    <alt>Bid</alt>
+  </str>
+  <str>
+    <main>Ask</main>
+    <alt>Ask</alt>
+  </str>
+  <!-- Error and Warning Messages -->
+  <str>
+    <main>Are you sure you want to control "Use previous bar value" manually?</main>
+    <alt>Sind Sie sicher, dass Sie "Benütze vorherigen Kerzenwert" manuell steuern wollen?</alt>
+  </str>
+  <str>
+    <main>Do you want to save the current strategy?</main>
+    <alt>Wollen Sie die aktuelle Strategie speichern?</alt>
+  </str>
+  <str>
+    <main>Do you want to accept changes to the strategy?</main>
+    <alt>Wollen Sie die Änderungen an der Strategie übernehmen?</alt>
+  </str>
+  <str>
+    <main>Do you want to accept the changes?</main>
+    <alt>Wollen Sie die Änderungen übernehmen?</alt>
+  </str>
+  <str>
+    <main>Data File Loading</main>
+    <alt>Laden der Datendatei</alt>
+  </str>
+  <str>
+    <main>Error in the data file!</main>
+    <alt>Fehler in Datendatei</alt>
+  </str>
+  <str>
+    <main>Language Change</main>
+    <alt>Sprachauswahl</alt>
+  </str>
+  <str>
+    <main>Do you want to reset all settings?</main>
+    <alt>Wollen Sie alle Einstellungen zurücksetzen?</alt>
+  </str>
+  <str>
+    <main>Restart the program to activate the changes!</main>
+    <alt>Starten Sie das Programm neu um alle Änderungen zu aktivieren!</alt>
+  </str>
+  <str>
+    <main>Translation</main>
+    <alt>Übersetzung</alt>
+  </str>
+  <str>
+    <main>Save the Strategy As</main>
+    <alt>Strategie speichern unter</alt>
+  </str>
+  <str>
+    <main>Strategy file</main>
+    <alt>Strategiedatei</alt>
+  </str>
+  <str>
+    <main>Strategy Loading</main>
+    <alt>Strategie Laden</alt>
+  </str>
+  <str>
+    <main>Open Strategy</main>
+    <alt>Strategie Öffnen</alt>
+  </str>
+  <str>
+    <main>The strategy could not be loaded correctly!</main>
+    <alt>Die Strategie konnte nicht korrekt geladen werden!</alt>
+  </str>
+  <str>
+    <main>A new strategy has been generated!</main>
+    <alt>Eine neue Strategie wurde generiert!</alt>
+  </str>
+  <!-- Language Phrases -->
+  <str>
+    <main>Language Phrases</main>
+    <alt>Phrasen</alt>
+  </str>
+  <str>
+    <main>Useful for Automatic Translation</main>
+    <alt>Praktisch für automatische Übersetzung</alt>
+  </str>
+  <str>
+    <main>Useful for Spell Check</main>
+    <alt>Praktisch für Rechtschreibprüfung</alt>
+  </str>
+  <str>
+    <main>Useful for Translation Check</main>
+    <alt>Praktisch für Übersetzungsprüfung</alt>
+  </str>
+  <str>
+    <main>Translated by</main>
+    <alt>Übersetzt von</alt>
+  </str>
+  <!-- New Translation -->
+  <str>
+    <main>New Translation</main>
+    <alt>Neue Übersetzung</alt>
+  </str>
+  <str>
+    <main>Common Parameters</main>
+    <alt>Allgemeingültige Parameter</alt>
+  </str>
+  <str>
+    <main>File name</main>
+    <alt>Dateiname</alt>
+  </str>
+  <str>
+    <main>Author</main>
+    <alt>Autor</alt>
+  </str>
+  <!-- Edit Translation -->
+  <str>
+    <main>Edit Translation</main>
+    <alt>Übersetzung bearbeiten</alt>
+  </str>
+  <str>
+    <main>English Phrase - Translated Phrase</main>
+    <alt>Englische Phrase - Übersetzte Phrase</alt>
+  </str>
+  <str>
+    <main>Search</main>
+    <alt>Suchen</alt>
+  </str>
+  <str>
+    <main>Not Translated</main>
+    <alt>Nicht übersetzt</alt>
+  </str>
+  <!-- Command Console -->
+  <str>
+    <main>Command Console</main>
+    <alt>Befehlszeile</alt>
+  </str>
+</lang>

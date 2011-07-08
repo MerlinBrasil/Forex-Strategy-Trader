@@ -1,0 +1,14 @@
+Thumbs.db
+/*.suo
+/*.sln.docstates
+/obj
+/bin/*.exe
+/bin/Debug/*.exe
+/bin/Debug/*.config
+/bin/Debug/*.pdb
+/bin/Debug/*.manifest
+/bin/Forex\ Strategy\ Trader/*.exe
+!/bin/Forex\ Strategy\ Trader/FST\ Starter.exe
+/bin/Forex\ Strategy\ Trader/*.config
+/bin/Forex\ Strategy\ Trader/*.pdb
+/bin/Forex\ Strategy\ Trader/*.manifest
