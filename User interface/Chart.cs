@@ -879,8 +879,8 @@ namespace Forex_Strategy_Trader
             {
                 if (chartData.Strategy.Slot[slot].SeparatedChart || repeatedIndicator[slot]) continue;
 
-                int cloudUp   = 0; // For Ichimoku and similar
-                int cloudDown = 0; // For Ichimoku and similar
+                int cloudUp   = -1; // For Ichimoku and similar
+                int cloudDown = -1; // For Ichimoku and similar
 
                 bool isIndicatorValueAtClose = true;
                 int  indicatorValueShift = 1;
@@ -1031,7 +1031,7 @@ namespace Forex_Strategy_Trader
                 }
 
                 // Clouds
-                if (cloudUp > 0 && cloudDown > 0)
+                if (cloudUp >= 0 && cloudDown >= 0)
                 {
                     PointF[] apntUp   = new PointF[lastBar - firstBar + 1];
                     PointF[] apntDown = new PointF[lastBar - firstBar + 1];
