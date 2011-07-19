@@ -289,6 +289,15 @@ namespace Forex_Strategy_Trader
         }
 
         /// <summary>
+        /// Loads a dropped strategy.
+        /// </summary>
+        protected override void LoadDroppedStrategy(string filePath)
+        {
+            Data.StrategyDir = System.IO.Path.GetDirectoryName(filePath);
+            LoadStrategyFile(filePath);
+        }
+
+        /// <summary>
         /// Opens the strategy settings dialogue.
         /// </summary>
         protected override void MenuStrategyAUPBV_OnClick(object sender, EventArgs e)

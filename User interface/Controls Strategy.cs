@@ -55,6 +55,7 @@ namespace Forex_Strategy_Trader
             browserOverview.Dock   = DockStyle.Fill;
             //browserOverview.AllowNavigation = false;
             browserOverview.WebBrowserShortcutsEnabled = false;
+            browserOverview.AllowWebBrowserDrop = false;
 
             // StrategyLayout
             strategyLayout = new Strategy_Layout(Data.Strategy.Clone());

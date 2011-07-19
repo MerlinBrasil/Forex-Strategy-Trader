@@ -42,9 +42,12 @@ namespace Forex_Strategy_Trader
             statusStrip    = new StatusStrip();
 
             // Panel Workspace
-            pnlWorkspace.Parent  = this;
-            pnlWorkspace.Dock    = DockStyle.Fill;
-            pnlWorkspace.Padding = new Padding(2);
+            pnlWorkspace.Parent     = this;
+            pnlWorkspace.Dock       = DockStyle.Fill;
+            pnlWorkspace.Padding    = new Padding(2);
+            pnlWorkspace.AllowDrop  = true;
+            pnlWorkspace.DragEnter += new DragEventHandler(Workspace_DragEnter);
+            pnlWorkspace.DragDrop  += new DragEventHandler(Workspace_DragDrop);
 
             // Tool Strip Trade control
             tsTradeControl.Parent = this;
@@ -59,6 +62,25 @@ namespace Forex_Strategy_Trader
             statusStrip.Dock   = DockStyle.Bottom;
 
             return;
+        }
+
+        void Workspace_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.All;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        void Workspace_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] s = (string[])e.Data.GetData(DataFormats.FileDrop, true);
+            string filePath = s[0];
+            LoadDroppedStrategy(filePath);
+        }
+
+        protected virtual void LoadDroppedStrategy(string filePath)
+        {
         }
     }
 }
