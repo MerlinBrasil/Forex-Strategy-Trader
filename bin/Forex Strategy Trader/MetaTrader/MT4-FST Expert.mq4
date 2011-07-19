@@ -1,6 +1,6 @@
 //+--------------------------------------------------------------------+
 //| File name:  MT4-FST Expert.mq4                                     |
-//| Version:    1.4 2011-07-07                                         |
+//| Version:    1.4.1 2011-07-18                                       |
 //| Copyright:  © 2011, Miroslav Popov - All rights reserved!          |
 //| Website:    http://forexsb.com/                                    |
 //| Support:    http://forexsb.com/forum/                              |
@@ -27,7 +27,7 @@
 #property copyright "Copyright © 2011, Miroslav Popov"
 #property link      "http://forexsb.com/"
 
-#define EXPERT_VERSION           "1.4"
+#define EXPERT_VERSION           "1.4.1"
 #define SERVER_SEMA_NAME         "MT4-FST Expert ID - "
 #define TRADE_SEMA_NAME          "TradeIsBusy"
 #define TRADE_SEMA_WAIT          100
@@ -1176,15 +1176,15 @@ void SetMaxStopLoss(string symbol)
         double takeProfitPrice = OrderTakeProfit();
         double stopLossPips    = MathAbs(posOpenPrice - stopLossPrice) / point;
 
-        if (stopLossPrice == 0 || stopLossPips > Protection_Max_StopLoss)
+        if (stopLossPrice == 0 || stopLossPips > Protection_Max_StopLoss + 0.01)
         {
             if (type == OP_BUY)
-                stopLossPrice = NormalizeDouble(posOpenPrice + point * Protection_Max_StopLoss, digits);
-            else if (type == OP_SELL)
                 stopLossPrice = NormalizeDouble(posOpenPrice - point * Protection_Max_StopLoss, digits);
+            else if (type == OP_SELL)
+                stopLossPrice = NormalizeDouble(posOpenPrice + point * Protection_Max_StopLoss, digits);
             stopLossPrice = CorrectStopLossPrice(symbol, type, stopLossPrice);
             if (ModifyPositionByTicket(symbol, orderTicket, stopLossPrice, takeProfitPrice) > 0)
-                Print("Max Stop Loss (", Protection_Max_StopLoss, " pips) set Max Stop Loss to ",  stopLossPrice);
+                Print("Max Stop Loss (", Protection_Max_StopLoss, " ) set Max Stop Loss to ",  stopLossPrice);
         }
     }
 }
@@ -1879,3 +1879,4 @@ bool SplitString(string stringValue, string separatorSymbol, string& results[], 
       return (false);
    }
 }
+
