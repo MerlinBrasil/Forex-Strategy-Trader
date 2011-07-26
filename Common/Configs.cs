@@ -795,7 +795,15 @@ namespace Forex_Strategy_Trader
         {
             try
             {
-                xmlConfig.Load(pathToConfigFile);
+                if (!File.Exists(pathToConfigFile))
+                {
+                    xmlConfig = new XmlDocument();
+                    xmlConfig.InnerXml = Properties.Resources.config;
+                }
+                else
+                {
+                    xmlConfig.Load(pathToConfigFile);
+                }
                 ParseConfigs();
                 isConfigLoaded = true;
             }

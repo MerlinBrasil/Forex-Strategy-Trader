@@ -342,6 +342,8 @@
     <EmbeddedResource Include="Img\paste.png" />
     <Content Include="License.txt" />
     <Content Include="README.txt" />
+    <Content Include="Resources\config.xml" />
+    <Content Include="Resources\fst-update.xml" />
     <Content Include="ToDo.txt" />
     <Content Include="Icon.ico" />
     <EmbeddedResource Include="Img\1day.png" />

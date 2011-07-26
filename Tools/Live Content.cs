@@ -104,7 +104,15 @@ namespace Forex_Strategy_Trader
         {
             try
             {
-                xmlUpdate.Load(pathUpdateFile);
+                if (!File.Exists(pathUpdateFile))
+                {
+                    xmlUpdate = new XmlDocument();
+                    xmlUpdate.InnerXml = Properties.Resources.fst_update;
+                }
+                else
+                {
+                    xmlUpdate.Load(pathUpdateFile);
+                }
             }
             catch (Exception e)
             {

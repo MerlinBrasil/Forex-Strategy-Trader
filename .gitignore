@@ -7,8 +7,12 @@ Thumbs.db
 /bin/Debug/*.config
 /bin/Debug/*.pdb
 /bin/Debug/*.manifest
+/bin/Debug/System/config.xml
+/bin/Debug/System/fst-update.xml
 /bin/Forex\ Strategy\ Trader/*.exe
 !/bin/Forex\ Strategy\ Trader/FST\ Starter.exe
 /bin/Forex\ Strategy\ Trader/*.config
 /bin/Forex\ Strategy\ Trader/*.pdb
 /bin/Forex\ Strategy\ Trader/*.manifest
+/bin/Forex\ Strategy\ Trader/System/config.xml
+/bin/Forex\ Strategy\ Trader/System/fst-update.xml
