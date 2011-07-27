@@ -1,11 +1,11 @@
 ; Forex Strategy Trader
-; 2011-07-19
+; 2011-07-28
 
 [Setup]
 AppName            = Forex Strategy Trader
-AppVersion         = 1.4.1.0
-VersionInfoVersion = 1.4.1.0
-AppVerName         = Forex Strategy Trader v1.4.1.0
+AppVersion         = 1.4.2.0
+VersionInfoVersion = 1.4.2.0
+AppVerName         = Forex Strategy Trader v1.4.2.0
 
 ArchitecturesInstallIn64BitMode = x64 ia64
 AppPublisher       = Forex Software Ltd.
@@ -24,6 +24,8 @@ DisableReadyPage        = true
 
 [InstallDelete]
 Type: files; Name: "{app}\System\fstconfig.xml"
+Type: files; Name: "{app}\System\config.xml"
+Type: files; Name: "{app}\System\fst-update.xml"
 
 [Files]
 Source: Forex Strategy Trader.exe;  DestDir: "{app}";
@@ -36,7 +38,6 @@ Source: Custom Indicators\*;        DestDir: "{app}\Custom Indicators";
 Source: MetaTrader\*;               DestDir: "{app}\MetaTrader";
 Source: Redistributable\*;          DestDir: "{app}\Redistributable";
 Source: Strategies\*;               DestDir: "{app}\Strategies";
-Source: System\*;                   DestDir: "{app}\System";
 Source: System\Colors\*;            DestDir: "{app}\System\Colors";
 Source: System\Images\*;            DestDir: "{app}\System\Images";
 Source: System\Languages\*;         DestDir: "{app}\System\Languages";
