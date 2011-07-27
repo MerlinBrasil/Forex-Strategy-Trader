@@ -735,7 +735,7 @@ namespace Forex_Strategy_Trader
             Data.ResetTicks();
 
             UpdateTickChart(Data.InstrProperties.Point, Data.ListTicks.ToArray());
-            UpdateBalanceChart(Data.BalanceStats.ToArray(), Data.EquityStats.ToArray());
+            UpdateBalanceChart(Data.BalanceData, Data.BalanceDataPoints);
             UpdateChart();
 
             return;

@@ -120,7 +120,7 @@ namespace Forex_Strategy_Trader
                             AppendJournalMessage(jmsgsys);
                         }
                         StopTrade();
-                        if (!UpdateDataFeedInfo(ping.Symbol, (DataPeriods)(int)ping.Period))
+                        if (!UpdateDataFeedInfo(ping.Time, ping.Symbol, (DataPeriods)(int)ping.Period))
                             return;
 
                         Data.Bid = ping.Bid;
@@ -179,8 +179,7 @@ namespace Forex_Strategy_Trader
                     Data.InstrProperties.Spread    = ping.Spread;
                     Data.InstrProperties.TickValue = ping.TickValue;
 
-                    int  balanceStatsCount = Data.BalanceStats.Count;
-                    bool isAccChanged = Data.SetCurrentAccount(ping.AccountBalance, ping.AccountEquity, ping.AccountProfit, ping.AccountFreeMargin);
+                    bool isAccChanged = Data.SetCurrentAccount(ping.Time, ping.AccountBalance, ping.AccountEquity, ping.AccountProfit, ping.AccountFreeMargin);
                     bool isPosChanged = Data.SetCurrentPosition(ping.PositionTicket, ping.PositionType, ping.PositionLots, ping.PositionOpenPrice,
                                                               ping.PositionStopLoss, ping.PositionTakeProfit, ping.PositionProfit, ping.PositionComment);
 
@@ -197,8 +196,8 @@ namespace Forex_Strategy_Trader
                         AppendJournalMessage(jmsg);
                     }
 
-                    if (Data.BalanceStats.Count > balanceStatsCount)
-                        UpdateBalanceChart(Data.BalanceStats.ToArray(), Data.EquityStats.ToArray());
+                    if (Data.IsBalanceDataChganged)
+                        UpdateBalanceChart(Data.BalanceData, Data.BalanceDataPoints);
                    
                     SetTickInfoText(string.Format("{0} {1} / {2}", ping.Time.ToString("HH:mm:ss"), sBid, sAsk));
                     SetConnIcon(1);
@@ -230,11 +229,11 @@ namespace Forex_Strategy_Trader
 
             Data.Bid = 0;
             Data.Ask = 0;
-            Data.SetCurrentAccount(0, 0, 0, 0);
+            Data.SetCurrentAccount(DateTime.MinValue, 0, 0, 0, 0);
             bool poschanged = Data.SetCurrentPosition(0, -1, 0, 0, 0, 0, 0, "");
             ShowCurrentPosition(poschanged);
             SetEquityInfoText(string.Format("{0} {1}", 0, Data.AccountCurrency));
-            UpdateBalanceChart(Data.BalanceStats.ToArray(), Data.EquityStats.ToArray());
+            UpdateBalanceChart(Data.BalanceData, Data.BalanceDataPoints);
             SetTradeStrip();
             SetConnMarketText(Language.T("Not Connected"));
             SetLblConnectionText(Language.T("Not Connected"));
@@ -290,8 +289,7 @@ namespace Forex_Strategy_Trader
 
                 Data.SetTick(tea.Bid);
                 
-                int  balanceStatsCount = Data.BalanceStats.Count;
-                bool isAccChanged = Data.SetCurrentAccount(tea.AccountBalance, tea.AccountEquity, tea.AccountProfit, tea.AccountFreeMargin);
+                bool isAccChanged = Data.SetCurrentAccount(tea.Time, tea.AccountBalance, tea.AccountEquity, tea.AccountProfit, tea.AccountFreeMargin);
                 bool isPosChanged = Data.SetCurrentPosition(tea.PositionTicket, tea.PositionType, tea.PositionLots, tea.PositionOpenPrice,
                                                           tea.PositionStopLoss, tea.PositionTakeProfit, tea.PositionProfit, tea.PositionComment);
 
@@ -322,8 +320,8 @@ namespace Forex_Strategy_Trader
                     AppendJournalMessage(jmsg);
                 }
 
-                if (Data.BalanceStats.Count > balanceStatsCount)
-                    UpdateBalanceChart(Data.BalanceStats.ToArray(), Data.EquityStats.ToArray());
+                if (Data.IsBalanceDataChganged)
+                    UpdateBalanceChart(Data.BalanceData, Data.BalanceDataPoints);
                 
                 SetTickInfoText(string.Format("{0} {1} / {2}", tea.Time.ToString("HH:mm:ss"), bidText, askText));
                 SetConnIcon(2);
@@ -354,7 +352,7 @@ namespace Forex_Strategy_Trader
         /// <summary>
         /// Sets the instrument's properties after connecting;
         /// </summary>
-        bool UpdateDataFeedInfo(string symbol, DataPeriods period)
+        bool UpdateDataFeedInfo(DateTime time, string symbol, DataPeriods period)
         {
             lock (lockerDataFeed)
             {
@@ -456,8 +454,8 @@ namespace Forex_Strategy_Trader
                 }
                 Data.AccountName     = account.Name;
                 Data.AccountCurrency = account.Currency;
-                Data.SetCurrentAccount(account.Balance, account.Equity, account.Profit, account.FreeMargin);
-                UpdateBalanceChart(Data.BalanceStats.ToArray(), Data.EquityStats.ToArray());
+                Data.SetCurrentAccount(time, account.Balance, account.Equity, account.Profit, account.FreeMargin);
+                UpdateBalanceChart(Data.BalanceData, Data.BalanceDataPoints);
 
                 SetTradeStrip();
                 SetLblSymbolText(symbol);

@@ -28,7 +28,7 @@ namespace Forex_Strategy_Trader
             balanceChart = new Balance_Chart();
             balanceChart.Parent = tabPageAccount;
             balanceChart.Dock   = DockStyle.Fill;
-            balanceChart.UpdateChartData(Data.BalanceStats.ToArray(), Data.EquityStats.ToArray());
+            balanceChart.UpdateChartData(Data.BalanceData, Data.BalanceDataPoints);
             balanceChart.Invalidate();
 
             return;
@@ -45,19 +45,19 @@ namespace Forex_Strategy_Trader
             return;
         }
 
-        delegate void UpdateBalanceChartDelegate(double[] balanceData, double[] equityData);
+        delegate void UpdateBalanceChartDelegate(Balance_Chart_Unit[] balanceData, int balancePoints);
         /// <summary>
         /// Updates the chart.
         /// </summary>
-        protected void UpdateBalanceChart(double[] balanceData, double[] equityData)
+        protected void UpdateBalanceChart(Balance_Chart_Unit[] balanceData, int balancePoints)
         {
             if (balanceChart.InvokeRequired)
             {
-                balanceChart.BeginInvoke(new UpdateBalanceChartDelegate(UpdateBalanceChart), new object[] { balanceData, equityData });
+                balanceChart.BeginInvoke(new UpdateBalanceChartDelegate(UpdateBalanceChart), new object[] { balanceData, balancePoints });
             }
             else
             {
-                balanceChart.UpdateChartData(balanceData, equityData);
+                balanceChart.UpdateChartData(balanceData, balancePoints);
                 balanceChart.RefreshChart();
             }
 

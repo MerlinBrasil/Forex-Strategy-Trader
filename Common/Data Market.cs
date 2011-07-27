@@ -97,15 +97,19 @@ namespace Forex_Strategy_Trader
         public static double AccountProfit      { get { return accountProfit;     } }
         public static double AccountFreeMargin  { get { return accountFreeMargin; } }
 
-        static List<double> listBalance = new List<double>();
-        static List<double> listEquity  = new List<double>();
-        public static List<double> BalanceStats { get { return listBalance; } }
-        public static List<double> EquityStats  { get { return listEquity;  } }
+        static int BALANCE_LENGHT = 2000;
+        static Balance_Chart_Unit[] balanceData = new Balance_Chart_Unit[BALANCE_LENGHT];
+        public static Balance_Chart_Unit[] BalanceData { get { return Data.balanceData; } }
+        static int balanceDataPoints = 0;
+        public static int BalanceDataPoints { get { return Data.balanceDataPoints; } }
+        static bool balanceDataChganged = false;
+        public static bool IsBalanceDataChganged { get { return balanceDataChganged; } }
 
-        public static bool SetCurrentAccount(double balance, double equity, double profit, double freeMargin)
+        public static bool SetCurrentAccount(DateTime time, double balance, double equity, double profit, double freeMargin)
         {
             bool balanceChanged = false;
             bool equityChanged  = false;
+            balanceDataChganged = false;
             if (Math.Abs(accountBalance - balance) > 0.01) balanceChanged = true;
             if (Math.Abs(accountEquity  - equity)  > 0.01) equityChanged  = true;
 
@@ -116,20 +120,32 @@ namespace Forex_Strategy_Trader
 
             if (balance > 0.01 && (equityChanged || balanceChanged))
             {
-                listBalance.Add(balance);
-                listEquity.Add(equity);
+                Balance_Chart_Unit chartUnit = new Balance_Chart_Unit();
+                chartUnit.Time    = time;
+                chartUnit.Balance = balance;
+                chartUnit.Equity  = equity;
 
-                if (listBalance.Count == 1)
+                if (balanceDataPoints == 0)
                 {
-                    listBalance.Add(balance);
-                    listEquity.Add(equity);
+                    balanceData[balanceDataPoints] = chartUnit;
+                    balanceDataPoints++;
                 }
-            }
 
-            if (listBalance.Count > 2000)
-                listBalance.RemoveRange(0, 1);
-            if (listEquity.Count > 2000)
-                listEquity.RemoveRange(0, 1);
+                if (balanceDataPoints == BALANCE_LENGHT)
+                {
+                    for (int i = 0; i < BALANCE_LENGHT - 1; i++)
+                        balanceData[i] = balanceData[i + 1];
+                    balanceDataPoints = BALANCE_LENGHT - 1;
+                }
+
+                if (balanceDataPoints < BALANCE_LENGHT)
+                {
+                    balanceData[balanceDataPoints] = chartUnit;
+                    balanceDataPoints++;
+                }
+
+                balanceDataChganged = true;
+            }
 
             return balanceChanged;
         }
@@ -139,8 +155,9 @@ namespace Forex_Strategy_Trader
             accountEquity     = 0;
             accountProfit     = 0;
             accountFreeMargin = 0;
-            listBalance = new List<double>();
-            listEquity  = new List<double>();
+
+            balanceDataPoints = 0;
+            balanceData = new Balance_Chart_Unit[BALANCE_LENGHT];
         }
 
         // Position parameters.

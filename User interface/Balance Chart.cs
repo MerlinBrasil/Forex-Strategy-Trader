@@ -11,6 +11,32 @@ using System.Windows.Forms;
 
 namespace Forex_Strategy_Trader
 {
+    public struct Balance_Chart_Unit
+    {
+        double balance;
+        double equity;
+        DateTime time;
+
+        public double Balance
+        {
+            get { return balance; }
+            set { balance = value; }
+        }
+
+        public double Equity
+        {
+            get { return equity; }
+            set { equity = value; }
+        }
+
+        public DateTime Time
+        {
+            get { return time; }
+            set { time = value; }
+        }
+    }
+
+
     /// <summary>
     /// Draws a balance chart
     /// </summary>
@@ -54,6 +80,7 @@ namespace Forex_Strategy_Trader
 
         double[] balanceData;
         double[] equityData;
+        DateTime startTime;
 
         /// <summary>
         /// Default constructor.
@@ -82,13 +109,18 @@ namespace Forex_Strategy_Trader
         /// <summary>
         /// Sets data to be displayed.
         /// </summary>
-        public void UpdateChartData(double[] balanceData, double[] equityData)
+        public void UpdateChartData(Balance_Chart_Unit[] data, int points)
         {
-            if (balanceData == null || balanceData.Length < 1 || equityData == null || equityData.Length < 1)
+            if (data == null || points < 1)
                 return;
 
-            this.balanceData = balanceData;
-            this.equityData  = equityData;
+            balanceData = new double[points];
+            equityData  = new double[points];;
+            for (int p = 0; p < points; p++)
+            {
+                balanceData[p] = data[p].Balance;
+                equityData[p]  = data[p].Equity;
+            }
 
             maxBalance = int.MinValue;
             minBalance = int.MaxValue;
@@ -106,6 +138,8 @@ namespace Forex_Strategy_Trader
                 if (equity > maxEquity) maxEquity = (int)equity;
                 if (equity < minEquity) minEquity = (int)equity;
             }
+
+            startTime = data[0].Time;
 
             InitChart();
 
@@ -127,7 +161,7 @@ namespace Forex_Strategy_Trader
         /// </summary>
         void InitChart()
         {
-            if (balanceData == null || balanceData.Length < 1 || equityData == null || equityData.Length < 1)
+            if (balanceData == null || balanceData.Length < 1)
                 return;
 
             chartPoints = Math.Max(balanceData.Length, equityData.Length);
@@ -139,7 +173,7 @@ namespace Forex_Strategy_Trader
             minValue = (int)(Math.Floor(minValue / 10f) * 10);
 
             YTop    = (int)captionHeight + 2 * space + 1;
-            YBottom = ClientSize.Height   - 2 * space - 1 - border;
+            YBottom = ClientSize.Height  - space - border - Font.Height;
 
             Graphics  g = CreateGraphics();
             labelWidth = (int)Math.Max(g.MeasureString(minValue.ToString("F2"), Font).Width, g.MeasureString(maxValue.ToString("F2"), Font).Width);
@@ -220,7 +254,7 @@ namespace Forex_Strategy_Trader
             g.DrawLines(new Pen(LayoutColors.ColorChartBalanceLine), apntBalance);
 
             // Coordinate axes
-            g.DrawLine(new Pen(LayoutColors.ColorChartFore), XLeft - 1, YTop - space, XLeft - 1, YBottom + 1);
+            g.DrawLine(new Pen(LayoutColors.ColorChartFore), XLeft - 1, YTop - space, XLeft - 1, YBottom + 1 + Font.Height);
 
             // Equity price label.
             Point  pntEquity  = new Point(XRight - space + 2, (int)(equityY - font.Height / 2 - 1));
@@ -249,6 +283,10 @@ namespace Forex_Strategy_Trader
             };
             g.FillPolygon(new SolidBrush(LayoutColors.ColorChartBalanceLine), apBalance);
             g.DrawString(balance, font, new SolidBrush(LayoutColors.ColorChartBack), pntBalance);
+
+            // Chart Text
+            string chartText = startTime.ToString();
+            g.DrawString(chartText, font, new SolidBrush(LayoutColors.ColorChartFore), XLeft, YBottom);
 
             return;
         }
