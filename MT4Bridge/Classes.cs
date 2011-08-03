@@ -272,6 +272,7 @@ namespace MT4Bridge
         int    number, leverage, stopoutmode, stopoutlevel;
         string name, company, server, currency;
         double balance, equity, profit, credit, margin, freemarginmode, freemargin;
+        bool   isDemo;
 
         public string Name           { get { return name;           } }
         public int    Number         { get { return number;         } }
@@ -288,9 +289,11 @@ namespace MT4Bridge
         public double FreeMargin     { get { return freemargin;     } }
         public int    StopOutMode    { get { return stopoutmode;    } }
         public int    StopOutLevel   { get { return stopoutlevel;   } }
+        public bool   IsDemo         { get { return isDemo;         } }
 
         public AccountInfo(string name, int number, string company, string server, string currency, int leverage, double balance,
-                double equity, double profit, double credit, double margin, double freemarginmode, double freemargin, int stopoutmode, int stopoutlevel)
+                double equity, double profit, double credit, double margin, double freemarginmode, double freemargin,
+                int stopoutmode, int stopoutlevel, bool isDemo)
         {
             this.name     = name;
             this.number   = number;
@@ -307,6 +310,7 @@ namespace MT4Bridge
             this.freemargin     = freemargin;
             this.stopoutmode    = stopoutmode;
             this.stopoutlevel   = stopoutlevel;
+            this.isDemo         = isDemo;
         }
     }
 

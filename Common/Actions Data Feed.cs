@@ -928,6 +928,7 @@ namespace Forex_Strategy_Trader
                 "Free margin",
                 "Stop out mode",
                 "Stop out level",
+                "Is demo account"
             };
 
             string[] asValues = new string[] {
@@ -946,6 +947,7 @@ namespace Forex_Strategy_Trader
                 ai.FreeMargin.ToString(),
                 ai.StopOutMode.ToString(),
                 ai.StopOutLevel.ToString(),
+                ai.IsDemo ? "Yes" : "No"
             };
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();

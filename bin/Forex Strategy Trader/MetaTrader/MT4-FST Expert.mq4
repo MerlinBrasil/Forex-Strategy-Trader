@@ -1,6 +1,6 @@
 //+--------------------------------------------------------------------+
 //| File name:  MT4-FST Expert.mq4                                     |
-//| Version:    1.4.1 2011-07-18                                       |
+//| Version:    1.5 2011-08-03                                         |
 //| Copyright:  © 2011, Miroslav Popov - All rights reserved!          |
 //| Website:    http://forexsb.com/                                    |
 //| Support:    http://forexsb.com/forum/                              |
@@ -27,7 +27,7 @@
 #property copyright "Copyright © 2011, Miroslav Popov"
 #property link      "http://forexsb.com/"
 
-#define EXPERT_VERSION           "1.4.1"
+#define EXPERT_VERSION           "1.5"
 #define SERVER_SEMA_NAME         "MT4-FST Expert ID - "
 #define TRADE_SEMA_NAME          "TradeIsBusy"
 #define TRADE_SEMA_WAIT          100
@@ -70,7 +70,7 @@ void FST_MarketInfoAll(int id, double point, double digits, double spread, doubl
         double marginrequired, double freezelevel);
 void FST_AccountInfo(int id, string name, int number, string company, string server, string currency, int leverage,
         double balance, double equity, double profit, double credit, double margin, double freemarginmode,
-        double freemargin, int stopoutmode, int stopout);
+        double freemargin, int stopoutmode, int stopout, int isdemo);
 void FST_TerminalInfo(int id, string symbol, string company, string path, string expertversion);
 void FST_Bars(int id, string symbol, int period, double rates[][6], int bars);
 int  FST_Request(int id, string &symbol[], int &iargs[], int icount, double &dargs[], int dcount, string &parameters[]);
@@ -445,7 +445,7 @@ int Server()
                     // Forex Strategy Trader requests full account info.
                     FST_AccountInfo(Connection_ID, AccountName(), AccountNumber(), AccountCompany(), AccountServer(), AccountCurrency(),
                         AccountLeverage(), AccountBalance(), AccountEquity(), AccountProfit(), AccountCredit(), AccountMargin(),
-                        AccountFreeMarginMode(), AccountFreeMargin(), AccountStopoutMode(), AccountStopoutLevel());
+                        AccountFreeMarginMode(), AccountFreeMargin(), AccountStopoutMode(), AccountStopoutLevel(), IF_I(IsDemo(), 1, 0));
                     break;
 
                 case FST_REQ_TERMINAL_INFO:

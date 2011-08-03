@@ -163,7 +163,7 @@ namespace MT4Bridge
                 return null;
 
             string[] reply = rc.Substring(3).Split(new char[] { ' ' });
-            if (reply.Length != 15)
+            if (reply.Length != 16)
                 return null;
 
             try {
@@ -172,7 +172,8 @@ namespace MT4Bridge
                     Fixstr(reply[3]),          Fixstr(reply[4]),          int.Parse(reply[5]),
                     StringToDouble(reply[6]),  StringToDouble(reply[7]),  StringToDouble(reply[8]),
                     StringToDouble(reply[9]),  StringToDouble(reply[10]), StringToDouble(reply[11]),
-                    StringToDouble(reply[12]), int.Parse(reply[13]),      int.Parse(reply[14]));
+                    StringToDouble(reply[12]), int.Parse(reply[13]),      int.Parse(reply[14]),
+                    int.Parse(reply[15]) == 1);
             } catch (FormatException) {
                 return null;
             }
