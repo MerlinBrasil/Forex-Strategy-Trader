@@ -434,6 +434,10 @@
     <alt>Check for New Beta Versions</alt>
   </str>
   <str>
+    <main>Send anonymous usage statistics</main>
+    <alt>Send anonymous usage statistics</alt>
+  </str>
+  <str>
     <main>About</main>
     <alt>About</alt>
   </str>

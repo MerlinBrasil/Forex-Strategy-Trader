@@ -499,6 +499,13 @@ namespace Forex_Strategy_Trader
             miHelpDonateNow.Click      += new EventHandler(MenuHelpContentsOnClick);
             miHelp.DropDownItems.Add(miHelpDonateNow);
 
+            ToolStripMenuItem miUsageStats = new ToolStripMenuItem();
+            miUsageStats.Text         = Language.T("Send anonymous usage statistics");
+            miUsageStats.Checked      = Configs.SendUsageStats;
+            miUsageStats.CheckOnClick = true;
+            miUsageStats.Click       += new EventHandler(MenuUsageStats_OnClick);
+            miHelp.DropDownItems.Add(miUsageStats);
+
             miHelp.DropDownItems.Add(new ToolStripSeparator());
 
             ToolStripMenuItem miHelpUpdates = new ToolStripMenuItem();
@@ -888,6 +895,17 @@ namespace Forex_Strategy_Trader
         {
             ToolStripMenuItem mi = (ToolStripMenuItem)sender;
             Configs.CheckForNewBeta = mi.Checked;
+
+            return;
+        }
+
+         /// <summary>
+        /// Menu UsageStatistics click
+        /// </summary>
+        protected virtual void MenuUsageStats_OnClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem mi = (ToolStripMenuItem)sender;
+            Configs.SendUsageStats = mi.Checked;
 
             return;
         }

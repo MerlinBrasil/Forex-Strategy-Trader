@@ -1,6 +1,3 @@
-; Forex Strategy Trader
-; 2011-07-28
-
 [Setup]
 AppName            = Forex Strategy Trader
 AppVersion         = 1.4.2.0
@@ -66,6 +63,20 @@ Filename: "{app}\ReadMe.html";     Description: "View the ReadMe file";   Flags:
 Filename: "{app}\FST Starter.exe"; Description: "Launch the application"; Flags: postinstall skipifsilent nowait;
 
 [code]
+var
+  UsagePage: TInputOptionWizardPage;
+
+procedure InitializeWizard;
+begin
+  UsagePage := CreateInputOptionPage(wpSelectProgramGroup,
+    'Usage Statistics', 'Help us improve Forex Strategy Trader',
+    'We would greatly appreciate if you allow us to collect anonymous usage statistics to help us provide a better quality product. The information collected is not used to identify or contact you. You can interrupt collecting usage statistics at any time from Help - Send anonymous usage statistics menu option in the program.',
+    True, False);
+  UsagePage.Add('Allow anonymous usage statistics (recomended).');
+  UsagePage.Add('Do not send anonymous usage statistics.');
+  UsagePage.SelectedValueIndex := 0;
+end;
+
 function InitializeSetup(): Boolean;
 var
   ErrorCode : Integer;
@@ -135,4 +146,13 @@ End;
 procedure DeinitializeSetup();
 begin
     DeleteVCRedistRuntimeTemporaryFiles();
+end;
+
+function NextButtonClick(CurPageID: Integer): Boolean;
+begin
+  if CurPageID = UsagePage.ID then
+  begin
+    RegWriteStringValue(HKCU, 'Software\Forex Software\Forex Strategy Trader', 'UsageStats', IntToStr(UsagePage.SelectedValueIndex));
+  end;
+  Result := True;
 end;

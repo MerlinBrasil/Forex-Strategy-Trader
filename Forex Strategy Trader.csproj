@@ -467,7 +467,9 @@
     <EmbeddedResource Include="Img\tab_operation.png" />
     <EmbeddedResource Include="Img\tab_status.png" />
     <EmbeddedResource Include="Img\tab_strategy.png" />
-    <Content Include="Resources\Bulgarian.xml" />
+    <Content Include="Resources\Bulgarian.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\EURUSD1440.txt" />
     <Content Include="Sounds\sound_error.wav" />
     <Content Include="Sounds\sound_order_sent.wav" />

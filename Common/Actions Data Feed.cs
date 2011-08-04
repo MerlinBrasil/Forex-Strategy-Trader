@@ -453,6 +453,7 @@ namespace Forex_Strategy_Trader
                     AppendJournalMessage(jmsgsys);
                 }
                 Data.AccountName     = account.Name;
+                Data.IsDemoAccount   = account.IsDemo;
                 Data.AccountCurrency = account.Currency;
                 Data.SetCurrentAccount(time, account.Balance, account.Equity, account.Profit, account.FreeMargin);
                 UpdateBalanceChart(Data.BalanceData, Data.BalanceDataPoints);
@@ -668,6 +669,10 @@ namespace Forex_Strategy_Trader
             // Resets trade global variables.
             InitTrade();
 
+            if (Data.IsDemoAccount)
+                Data.DemoTradeStartTime = DateTime.Now;
+            else
+                Data.LiveTradeStartTime = DateTime.Now;
             JournalMessage msg = new JournalMessage(JournalIcons.StartTrading, DateTime.Now, Language.T("Automatic trade started."));
             AppendJournalMessage(msg);
 
@@ -692,6 +697,11 @@ namespace Forex_Strategy_Trader
             isTrading = false;
 
             DeinitTrade();
+
+            if (Data.IsDemoAccount)
+                Data.SecondsDemoTrading += (DateTime.Now - Data.DemoTradeStartTime).Seconds;
+            else
+                Data.SecondsLiveTrading += (DateTime.Now - Data.LiveTradeStartTime).Seconds;
 
             JournalMessage msg = new JournalMessage(JournalIcons.StopTrading, DateTime.Now, Language.T("Automatic trade stopped."));
             AppendJournalMessage(msg);

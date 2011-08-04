@@ -22,6 +22,7 @@
   <lastTab>0</lastTab>
   <useLogicalGroups>False</useLogicalGroups>
   <journalLength>1000</journalLength>
+  <sendUsageStats>True</sendUsageStats>
   <trade>
     <longTradeLogicPrice>Bid</longTradeLogicPrice>
     <barCloseAdvance>3</barCloseAdvance>

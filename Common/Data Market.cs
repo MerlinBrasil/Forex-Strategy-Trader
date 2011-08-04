@@ -83,6 +83,7 @@ namespace Forex_Strategy_Trader
         // Account condition.
         static string accountName;
         static int    accountNumber;
+        static bool   isDemoAccount;
         static string accountCurrency;
         static double accountBalance;
         static double accountEquity;
@@ -91,6 +92,7 @@ namespace Forex_Strategy_Trader
 
         public static string AccountName        { get { return accountName;       } set { accountName     = value; } }
         public static int    AccountNumber      { get { return accountNumber;     } set { accountNumber   = value; } }
+        public static bool   IsDemoAccount      { get { return isDemoAccount;     } set { isDemoAccount   = value; } }
         public static string AccountCurrency    { get { return accountCurrency;   } set { accountCurrency = value; } }
         public static double AccountBalance     { get { return accountBalance;    } }
         public static double AccountEquity      { get { return accountEquity;     } }
@@ -269,6 +271,20 @@ namespace Forex_Strategy_Trader
         {
             barStats = new Dictionary<DateTime, BarStats>();
         }
+
+        // Usage statistics.
+        static DateTime fstStartTime = DateTime.Now;
+        static DateTime demoTradeStartTime = DateTime.Now;
+        static DateTime liveTradeStartTime = DateTime.Now;
+        static int secondsDemoTrading = 0;
+        static int secondsLiveTrading = 0;
+        static int savedStrategies = 0;
+        public static DateTime FstStartTime { get { return fstStartTime; } set { fstStartTime = value; } }
+        public static DateTime DemoTradeStartTime { get { return demoTradeStartTime; } set { demoTradeStartTime = value; } }
+        public static DateTime LiveTradeStartTime { get { return liveTradeStartTime; } set { liveTradeStartTime = value; } }
+        public static int SecondsDemoTrading { get { return secondsDemoTrading; } set { secondsDemoTrading = value; } }
+        public static int SecondsLiveTrading { get { return secondsLiveTrading; } set { secondsLiveTrading = value; } }
+        public static int SavedStrategies { get { return savedStrategies; } set { savedStrategies = value; } }
 
         // Wrong set SL or TP
         static int wrongStopLoss = 0;

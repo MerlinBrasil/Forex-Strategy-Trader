@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
+using Microsoft.Win32;
 
 namespace Forex_Strategy_Trader
 {
@@ -50,6 +51,7 @@ namespace Forex_Strategy_Trader
         static int    lastTabDefault           = 0;
         static bool   useLogicalGroupsDefault  = false;
         static int    journalLengthDefault     = 1000;
+        static bool   sendUsageStatsDefault    = true;
 
         // Chart
         static int  chartZoomDefault            = 9;
@@ -279,6 +281,18 @@ namespace Forex_Strategy_Trader
                 currentTipNumber = value;
                 if (isConfigLoaded)
                     xmlConfig.SelectNodes("config/currentTipNumber").Item(0).InnerText = value.ToString();
+            }
+        }
+
+        static bool sendUsageStats = sendUsageStatsDefault;
+        public static bool SendUsageStats
+        {
+            get { return sendUsageStats; }
+            set
+            {
+                sendUsageStats = value;
+                if (isConfigLoaded)
+                    xmlConfig.SelectNodes("config/sendUsageStats").Item(0).InnerText = value.ToString();
             }
         }
 
@@ -749,7 +763,7 @@ namespace Forex_Strategy_Trader
             minChartBars               = int.Parse(xmlConfig.SelectNodes("config/trade/minChartBars").Item(0).InnerText);
 
             // Program settings
-            isInstalled                 = bool.Parse(xmlConfig.SelectNodes("config/installed").Item(0).InnerText);
+            isInstalled                = bool.Parse(xmlConfig.SelectNodes("config/installed").Item(0).InnerText);
             language                   = xmlConfig.SelectNodes("config/language").Item(0).InnerText;
             showStartingTip            = bool.Parse(xmlConfig.SelectNodes("config/showStartingTip").Item(0).InnerText);
             currentTipNumber           = int.Parse(xmlConfig.SelectNodes("config/currentTipNumber").Item(0).InnerText);
@@ -766,10 +780,11 @@ namespace Forex_Strategy_Trader
             bridgeWritesLog            = bool.Parse(xmlConfig.SelectNodes("config/bridgeWritesLog").Item(0).InnerText);
             lastTab                    = int.Parse(xmlConfig.SelectNodes("config/lastTab").Item(0).InnerText);
             useLogicalGroups           = bool.Parse(xmlConfig.SelectNodes("config/useLogicalGroups").Item(0).InnerText);
-            journalLength               = int.Parse(xmlConfig.SelectNodes("config/journalLength").Item(0).InnerText);
+            journalLength              = int.Parse(xmlConfig.SelectNodes("config/journalLength").Item(0).InnerText);
+            sendUsageStats             = bool.Parse(xmlConfig.SelectNodes("config/sendUsageStats").Item(0).InnerText);
 
             // Indicator Chart
-            chartZoom                  = int.Parse(xmlConfig.SelectNodes("config/chart/zoom").Item(0).InnerText);
+            chartZoom                    = int.Parse(xmlConfig.SelectNodes("config/chart/zoom").Item(0).InnerText);
             isChartInfoPanel             = bool.Parse(xmlConfig.SelectNodes("config/chart/infoPanel").Item(0).InnerText);
             isChartGrid                  = bool.Parse(xmlConfig.SelectNodes("config/chart/grid").Item(0).InnerText);
             isChartCross                 = bool.Parse(xmlConfig.SelectNodes("config/chart/cross").Item(0).InnerText);
@@ -786,6 +801,20 @@ namespace Forex_Strategy_Trader
             journalShowTicks           = bool.Parse(xmlConfig.SelectNodes("config/journal/showTicks").Item(0).InnerText);
 
             return;
+        }
+
+        /// <summary>
+        /// Sets params after loading config file.
+        /// </summary>
+        static void ConfigAfterLoading()
+        {
+            if (!isInstalled)
+            {
+                RegistryKey regKey = Registry.CurrentUser;
+                regKey = regKey.CreateSubKey("Software\\Forex Software\\Forex Strategy Trader");
+                SendUsageStats = (regKey.GetValue("UsageStats") == null || regKey.GetValue("UsageStats").ToString() == "0");
+                IsInstalled = true;
+            }
         }
 
         /// <summary>
@@ -806,6 +835,7 @@ namespace Forex_Strategy_Trader
                 }
                 ParseConfigs();
                 isConfigLoaded = true;
+                ConfigAfterLoading();
             }
             catch (Exception e)
             {

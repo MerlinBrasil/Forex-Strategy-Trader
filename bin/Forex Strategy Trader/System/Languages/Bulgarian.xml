@@ -434,6 +434,10 @@
     <alt>Проверка за нови бета версии </alt>
   </str>
   <str>
+    <main>Send anonymous usage statistics</main>
+    <alt>Изпращане на анонимна статистика за използване</alt>
+  </str>
+  <str>
     <main>About</main>
     <alt>Относно</alt>
   </str>

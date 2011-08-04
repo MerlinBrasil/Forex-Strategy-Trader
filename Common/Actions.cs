@@ -194,6 +194,8 @@ namespace Forex_Strategy_Trader
 
             DeinitDataFeed();
             Configs.SaveConfigs();
+            this.Hide();
+            Data.SendStats();
 
             return;
         }
@@ -672,6 +674,7 @@ namespace Forex_Strategy_Trader
                     Data.Strategy.Save(Data.StrategyPath);
                     Data.IsStrategyChanged = false;
                     Data.LoadedSavedStrategy = Data.StrategyPath;
+                    Data.SavedStrategies++;
                 }
                 catch (Exception exc)
                 {
@@ -706,6 +709,7 @@ namespace Forex_Strategy_Trader
                     Data.Strategy.Save(savedlg.FileName);
                     Data.IsStrategyChanged = false;
                     Data.LoadedSavedStrategy = Data.StrategyPath;
+                    Data.SavedStrategies++;
                     SetFormText();
                 }
                 catch (Exception exc)

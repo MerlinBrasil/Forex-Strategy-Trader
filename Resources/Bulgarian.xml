@@ -124,6 +124,7 @@
   <str><main>Show the program's forum.</main><alt>Показване на форума на програмата.</alt></str>
   <str><main>Check for Updates at Startup</main><alt>Проверка за обновяване при стартиране</alt></str>
   <str><main>Check for New Beta Versions</main><alt>Проверка за нови бета версии </alt></str>
+  <str><main>Send anonymous usage statistics</main><alt>Изпращане на анонимна статистика за използване</alt></str>
   <str><main>About</main><alt>Относно</alt></str>
   <str><main>Show the program information.</main><alt>Показване на информация за програмата.</alt></str>
 

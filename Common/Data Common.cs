@@ -11,6 +11,8 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Media;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace Forex_Strategy_Trader
@@ -367,6 +369,46 @@ namespace Forex_Strategy_Trader
 
             return !bStrategyIndicatorsChanged;
         }
+
+        /// <summary>
+        /// Collects usage statistics and sends them if it's allowed.
+        /// </summary>
+        public static void SendStats()
+        {
+            string fileURL = "http://forexsb.com/ustats/set-fst.php";
+
+            string mac = "";
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (nic.OperationalStatus == OperationalStatus.Up)
+                {
+                    mac = nic.GetPhysicalAddress().ToString();
+                    break;
+                }
+            }
+
+            string parameters = string.Empty;
+
+            if (Configs.SendUsageStats)
+            {
+                parameters =
+                   "?mac="  + mac +
+                   "&reg="  + System.Globalization.RegionInfo.CurrentRegion.EnglishName +
+                   "&time=" + (DateTime.Now - fstStartTime).Seconds +
+                   "&dtt="  + secondsDemoTrading +
+                   "&ltt="  + secondsLiveTrading +
+                   "&str="  + savedStrategies;
+            }
+
+            try
+            {
+                WebClient webClient = new WebClient();
+                Stream data = webClient.OpenRead(fileURL + parameters);
+                data.Close();
+            }
+            catch { }
+        }
+
 
         /// <summary>
         /// Saves a text line in log file.
