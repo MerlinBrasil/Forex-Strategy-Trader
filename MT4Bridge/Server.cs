@@ -52,12 +52,12 @@ namespace MT4Bridge
 
             switch (cmd) {
                 case "TI":
-                    if (args == null || args.Length != 26)
+                    if (args == null || args.Length != 27)
                         return "ER Invalid Number of Arguments";
 
                     return Tick(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9], args[10],
                                 args[11], args[12], args[13], args[14], args[15], args[16], args[17], args[18], args[19], args[20],
-                                args[21], args[22], args[23], args[24], args[25]);
+                                args[21], args[22], args[23], args[24], args[25], args[26]);
             }
             return "ER Bad Command";
         }
@@ -74,7 +74,7 @@ namespace MT4Bridge
         private string Tick(string symbol,   string aperiod,  string atime, string abid, string aask,   string aspread, string atickvalue,
                             string abartime, string aopen,    string ahigh, string alow, string aclose, string avolume, string abartime10,
                             string aaccountBalance,   string aaccountEquity,      string aaccountProfit,  string aaccountFreeMargin,
-                            string apositionTicket,   string apositionType,       string apositionLots,   string apositionOpenPrice,
+                            string apositionTicket,   string apositionType,       string apositionLots,   string apositionOpenPrice, string apositionOpenTime,
                             string apositionStopLoss, string apositionTakeProfit, string apositionProfit, string apositionComment)
         {
             try 
@@ -103,6 +103,7 @@ namespace MT4Bridge
                 int      positionType       = int.Parse(apositionType);
                 double   positionLots       = StringToDouble(apositionLots);
                 double   positionOpenPrice  = StringToDouble(apositionOpenPrice);
+                DateTime positionOpenTime   = FromTimestamp(int.Parse(apositionOpenTime));
                 double   positionStopLoss   = StringToDouble(apositionStopLoss);
                 double   positionTakeProfit = StringToDouble(apositionTakeProfit);
                 double   positionProfit     = StringToDouble(apositionProfit);
@@ -112,7 +113,7 @@ namespace MT4Bridge
 
                 bridge.Tick(symbol, period, bartime, time, bid, ask, spread, tickvalue,
                     accountBalance,   accountEquity,      accountProfit,  accountFreeMargin,
-                    positionTicket,   positionType,       positionLots,   positionOpenPrice,
+                    positionTicket,   positionType,       positionLots,   positionOpenPrice, positionOpenTime,
                     positionStopLoss, positionTakeProfit, positionProfit, positionComment);
                 
                 return "OK";

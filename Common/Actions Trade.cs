@@ -32,6 +32,9 @@ namespace Forex_Strategy_Trader
         List<string> openingLogicGroups;
         List<string> closingLogicGroups;
 
+        // N Bars Exit indicator - Krog
+        static int NBarsExit;
+
         /// <summary>
         /// Initializes the global variables.
         /// </summary>
@@ -100,6 +103,17 @@ namespace Forex_Strategy_Trader
                     closingLogicGroups.Add("all"); // If all the slots are in "all" group, adds "all" to the list.
             }
 
+            // Search if N Bars Exit is present as CloseFilter, could be any slot after first closing slot. - Krog
+            NBarsExit = 0;
+            for (int slot = Data.Strategy.CloseSlot; slot < Data.Strategy.Slots; slot++)
+            {
+                if (Data.Strategy.Slot[slot].IndicatorName == "N Bars Exit")
+                {
+                    NBarsExit = (int)Data.Strategy.Slot[slot].IndParam.NumParam[0].Value;
+                    break;
+                }
+            }
+
             return;
         }
 
@@ -113,6 +127,8 @@ namespace Forex_Strategy_Trader
                 Data.Strategy.Slot[Data.Strategy.OpenSlot].LogicalGroup  = ""; // Delete the group of open slot.
                 Data.Strategy.Slot[Data.Strategy.CloseSlot].LogicalGroup = ""; // Delete the group of close slot.
             }
+
+            NBarsExit = 0;
 
             return;
         }
@@ -465,6 +481,10 @@ namespace Forex_Strategy_Trader
 
             if (Data.Strategy.CloseFilters == 0)
                 return TradeDirection.Both;
+
+            if (NBarsExit > 0)
+                if (Data.PositionOpenTime.AddMinutes(NBarsExit * (int)Data.Period) < Data.Time[Data.Bars - 1].AddMinutes((int)Data.Period))
+                    return TradeDirection.Both;
          
             TradeDirection direction = TradeDirection.None;
 
@@ -1075,13 +1095,15 @@ namespace Forex_Strategy_Trader
                 default:
                     break;
             }
+            string trailingStopParam = trailingStopMode + "=" + trailTrailingStop;
 
             // Break Even
             int distanceBreakEven = 0;
             if (Data.Strategy.UseBreakEven)
                 distanceBreakEven = Data.Strategy.BreakEven;
+            string breakEvenParam = "BRE=" + distanceBreakEven;
 
-            string parameters = trailingStopMode + "=" + trailTrailingStop + ";BRE=" + distanceBreakEven;
+            string parameters = trailingStopParam + ";" + breakEvenParam;
 
             return parameters;
         }

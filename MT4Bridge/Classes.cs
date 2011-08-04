@@ -50,6 +50,7 @@ namespace MT4Bridge
         int        positionType;
         double     positionLots;
         double     positionOpenPrice;
+        DateTime   positionOpenTime;
         double     positionStopLoss;
         double     positionTakeProfit;
         double     positionProfit;
@@ -71,6 +72,7 @@ namespace MT4Bridge
         public int        PositionType       { get { return positionType;       } }
         public double     PositionLots       { get { return positionLots;       } }
         public double     PositionOpenPrice  { get { return positionOpenPrice;  } }
+        public DateTime   PositionOpenTime   { get { return positionOpenTime;   } }
         public double     PositionStopLoss   { get { return positionStopLoss;   } }
         public double     PositionTakeProfit { get { return positionTakeProfit; } }
         public double     PositionProfit     { get { return positionProfit;     } }
@@ -78,7 +80,7 @@ namespace MT4Bridge
 
         public TickEventArgs(string symbol, PeriodType period, DateTime bartime, DateTime time, double bid, double ask, int spread, double tickvalue,
                     double accountBalance, double accountEquity, double accountProfit, double accountFreeMargin,
-                    int positionTicket, int positionType, double positionLots, double positionOpenPrice,
+                    int positionTicket, int positionType, double positionLots, double positionOpenPrice, DateTime positionOpenTime,
                     double positionStopLoss, double positionTakeProfit, double positionProfit, string positionComment)
         {
             this.symbol             = symbol;
@@ -97,6 +99,7 @@ namespace MT4Bridge
             this.positionType       = positionType;
             this.positionLots       = positionLots;
             this.positionOpenPrice  = positionOpenPrice;
+            this.positionOpenTime   = positionOpenTime;
             this.positionStopLoss   = positionStopLoss;
             this.positionTakeProfit = positionTakeProfit;
             this.positionProfit     = positionProfit;
@@ -122,6 +125,7 @@ namespace MT4Bridge
         int        positionType;
         double     positionLots;
         double     positionOpenPrice;
+        DateTime   positionOpenTime;
         double     positionStopLoss;
         double     positionTakeProfit;
         double     positionProfit;
@@ -143,6 +147,7 @@ namespace MT4Bridge
         public int        PositionType       { get { return positionType;       } }
         public double     PositionLots       { get { return positionLots;       } }
         public double     PositionOpenPrice  { get { return positionOpenPrice;  } }
+        public DateTime   PositionOpenTime   { get { return positionOpenTime;   } }
         public double     PositionStopLoss   { get { return positionStopLoss;   } }
         public double     PositionTakeProfit { get { return positionTakeProfit; } }
         public double     PositionProfit     { get { return positionProfit;     } }
@@ -150,7 +155,7 @@ namespace MT4Bridge
 
         public PingInfo(string symbol, PeriodType period, DateTime bartime, DateTime time, double bid, double ask, int spread, double tickvalue,
                     double accountBalance, double accountEquity, double accountProfit, double accountFreeMargin,
-                    int positionTicket, int positionType, double positionLots, double positionOpenPrice,
+                    int positionTicket, int positionType, double positionLots, double positionOpenPrice, DateTime positionOpenTime,
                     double positionStopLoss, double positionTakeProfit, double positionProfit, string positionComment)
         {
             this.symbol             = symbol;
@@ -169,6 +174,7 @@ namespace MT4Bridge
             this.positionType       = positionType;
             this.positionLots       = positionLots;
             this.positionOpenPrice  = positionOpenPrice;
+            this.positionOpenTime   = positionOpenTime;
             this.positionStopLoss   = positionStopLoss;
             this.positionTakeProfit = positionTakeProfit;
             this.positionProfit     = positionProfit;

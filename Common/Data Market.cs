@@ -163,23 +163,25 @@ namespace Forex_Strategy_Trader
         }
 
         // Position parameters.
-        static int    positionTicket     = 0;
-        static int    positionType       = -1;
-        static double positionLots       = 0;
-        static double positionOpenPrice  = 0;
-        static double positionStopLoss   = 0;
-        static double positionTakeProfit = 0;
-        static double positionProfit     = 0;
-        static string positionComment    = "";
+        static int      positionTicket     = 0;
+        static int      positionType       = -1;
+        static double   positionLots       = 0;
+        static double   positionOpenPrice  = 0;
+        static DateTime positionOpenTime   = DateTime.MinValue;
+        static double   positionStopLoss   = 0;
+        static double   positionTakeProfit = 0;
+        static double   positionProfit     = 0;
+        static string   positionComment    = "";
 
-        public static int    PositionTicket     { get { return positionTicket;     } }
-        public static int    PositionType       { get { return positionType;       } }
-        public static double PositionLots       { get { return positionLots;       } }
-        public static double PositionOpenPrice  { get { return positionOpenPrice;  } }
-        public static double PositionStopLoss   { get { return positionStopLoss;   } }
-        public static double PositionTakeProfit { get { return positionTakeProfit; } }
-        public static double PositionProfit     { get { return positionProfit;     } }
-        public static string PositionComment    { get { return positionComment;    } }
+        public static int      PositionTicket     { get { return positionTicket;     } }
+        public static int      PositionType       { get { return positionType;       } }
+        public static double   PositionLots       { get { return positionLots;       } }
+        public static double   PositionOpenPrice  { get { return positionOpenPrice;  } }
+        public static DateTime PositionOpenTime   { get { return positionOpenTime;   } }
+        public static double   PositionStopLoss   { get { return positionStopLoss;   } }
+        public static double   PositionTakeProfit { get { return positionTakeProfit; } }
+        public static double   PositionProfit     { get { return positionProfit;     } }
+        public static string   PositionComment    { get { return positionComment;    } }
         public static PosDirection PositionDirection
         {
             get
@@ -202,7 +204,7 @@ namespace Forex_Strategy_Trader
             }
         }
 
-        public static bool SetCurrentPosition(int ticket, int type, double lots, double price, double stoploss, double takeprofit, double profit, string comment)
+        public static bool SetCurrentPosition(int ticket, int type, double lots, double price, DateTime opentime, double stoploss, double takeprofit, double profit, string comment)
         {
             bool changed = false;
 
@@ -218,6 +220,7 @@ namespace Forex_Strategy_Trader
             positionType       = type;
             positionLots       = lots;
             positionOpenPrice  = price;
+            positionOpenTime   = opentime;
             positionStopLoss   = stoploss;
             positionTakeProfit = takeprofit;
             positionProfit     = profit;
@@ -246,6 +249,7 @@ namespace Forex_Strategy_Trader
             positionType       = -1;
             positionLots       = 0;
             positionOpenPrice  = 0;
+            positionOpenTime   = DateTime.MinValue;
             positionStopLoss   = 0;
             positionTakeProfit = 0;
             positionProfit     = 0;

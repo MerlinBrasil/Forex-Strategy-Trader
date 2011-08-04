@@ -77,6 +77,7 @@
     <Compile Include="Dialogs\Command Console.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Indicators\N Bars Exit.cs" />
     <Compile Include="Instruments\Bar Stats.cs" />
     <Compile Include="Common\Configs.cs" />
     <Compile Include="Common\Data Common.cs" />

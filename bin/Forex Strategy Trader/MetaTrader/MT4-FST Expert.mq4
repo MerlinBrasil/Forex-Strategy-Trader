@@ -1,6 +1,6 @@
 //+--------------------------------------------------------------------+
 //| File name:  MT4-FST Expert.mq4                                     |
-//| Version:    1.5 2011-08-03                                         |
+//| Version:    1.6 2011-08-04                                         |
 //| Copyright:  © 2011, Miroslav Popov - All rights reserved!          |
 //| Website:    http://forexsb.com/                                    |
 //| Support:    http://forexsb.com/forum/                              |
@@ -27,7 +27,7 @@
 #property copyright "Copyright © 2011, Miroslav Popov"
 #property link      "http://forexsb.com/"
 
-#define EXPERT_VERSION           "1.5"
+#define EXPERT_VERSION           "1.6"
 #define SERVER_SEMA_NAME         "MT4-FST Expert ID - "
 #define TRADE_SEMA_NAME          "TradeIsBusy"
 #define TRADE_SEMA_WAIT          100
@@ -57,11 +57,11 @@ void FST_OpenConnection(int id);
 void FST_CloseConnection(int id);
 void FST_Ping(int id, string symbol, int period, int time, double bid, double ask, int spread, double tickval, double rates[][6], int bars,
         double accountBalance, double accountEquity, double accountProfit, double accountFreeMargin, int positionTicket,
-        int positionType, double positionLots, double positionOpenPrice, double positionStopLoss,
+        int positionType, double positionLots, double positionOpenPrice, int positionOpenTime, double positionStopLoss,
         double positionTakeProfit, double positionProfit, string positionComment);
 int FST_Tick(int id, string symbol, int period, int time, double bid, double ask, int spread, double tickval, double rates[][6], int bars,
         double accountBalance, double accountEquity, double accountProfit, double accountFreeMargin, int positionTicket,
-        int positionType, double positionLots, double positionOpenPrice, double positionStopLoss,
+        int positionType, double positionLots, double positionOpenPrice, int positionOpenTime, double positionStopLoss,
         double positionTakeProfit, double positionProfit, string positionComment);
 void FST_MarketInfoAll(int id, double point, double digits, double spread, double stoplevel, double lotsize,
         double tickvalue, double ticksize, double swaplong, double swapshort, double starting, double expiration,
@@ -123,7 +123,7 @@ datetime TimeLastPing     = 0;     // Time of last ping from Forex Strategy Trad
 // Aggregate position.
 int      PositionTicket     = 0;
 int      PositionType       = OP_SQUARE;
-datetime PositionTime       = 0;
+datetime PositionTime       = D'2020.01.01 00:00';
 double   PositionLots       = 0;
 double   PositionOpenPrice  = 0;
 double   PositionStopLoss   = 0;
@@ -521,7 +521,7 @@ int SetAggregatePosition(string symbol)
 {
     PositionTicket     = 0;
     PositionType       = OP_SQUARE;
-    PositionTime       = 0;
+    //PositionTime       = D'2020.01.01 00:00';
     PositionLots       = 0;
     PositionOpenPrice  = 0;
     PositionStopLoss   = 0;
@@ -557,7 +557,7 @@ int SetAggregatePosition(string symbol)
 
         PositionTicket      = OrderTicket();
         PositionType        = OrderType();
-        PositionTime        = OrderOpenTime();
+        PositionTime        = IF_I(OrderOpenTime() < PositionTime, OrderOpenTime(), PositionTime);
         PositionOpenPrice   = (PositionLots * PositionOpenPrice + OrderLots() * OrderOpenPrice()) / (PositionLots + OrderLots());
         PositionLots       += OrderLots();
         PositionProfit     += OrderProfit() + OrderCommission();
@@ -571,6 +571,9 @@ int SetAggregatePosition(string symbol)
 
     if (PositionOpenPrice > 0)
         PositionOpenPrice = NormalizeDouble(PositionOpenPrice, MarketInfo(symbol, MODE_DIGITS));
+
+    if (PositionLots == 0)
+        PositionTime = D'2020.01.01 00:00';
 
     return (positions);
 }
@@ -1411,7 +1414,7 @@ void GetPing(string symbol)
 
     FST_Ping(Connection_ID, symbol, Period(), TimeCurrent(), bid, ask, spread, tickval, rates, Bars,
         AccountBalance(), AccountEquity(), AccountProfit(), AccountFreeMargin(),
-        PositionTicket, PositionType, PositionLots, PositionOpenPrice, PositionStopLoss, PositionTakeProfit, PositionProfit, PositionComment);
+        PositionTicket, PositionType, PositionLots, PositionOpenPrice, PositionTime, PositionStopLoss, PositionTakeProfit, PositionProfit, PositionComment);
 
    return;
 }
@@ -1434,7 +1437,7 @@ int SendTick(string symbol)
 
     int responce = FST_Tick(Connection_ID, symbol, Period(), TimeCurrent(), bid, ask, spread, tickval, rates, Bars,
         AccountBalance(), AccountEquity(), AccountProfit(), AccountFreeMargin(),
-        PositionTicket, PositionType, PositionLots, PositionOpenPrice, PositionStopLoss, PositionTakeProfit, PositionProfit, PositionComment);
+        PositionTicket, PositionType, PositionLots, PositionOpenPrice, PositionTime, PositionStopLoss, PositionTakeProfit, PositionProfit, PositionComment);
 
     return (responce);
 }

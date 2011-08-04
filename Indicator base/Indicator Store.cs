@@ -72,6 +72,7 @@ namespace Forex_Strategy_Trader
             {"Money Flow",                new Money_Flow(SlotTypes.NotDefined)},
             {"Moving Average",            new Moving_Average(SlotTypes.NotDefined)},
             {"Moving Averages Crossover", new Moving_Averages_Crossover(SlotTypes.NotDefined)},
+            {"N Bars Exit",               new N_Bars_Exit(SlotTypes.NotDefined)},
             {"Narrow Range",              new Narrow_Range(SlotTypes.NotDefined)},
             {"OBOS MA Oscillator",        new OBOS_MA_Oscillator(SlotTypes.NotDefined)},
             {"On Balance Volume",         new On_Balance_Volume(SlotTypes.NotDefined)},
@@ -251,5 +252,4 @@ namespace Forex_Strategy_Trader
         }
 
     }
-
 }

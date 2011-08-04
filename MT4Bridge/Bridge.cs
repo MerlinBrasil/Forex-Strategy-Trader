@@ -78,14 +78,14 @@ namespace MT4Bridge
         public event TickEventHandler OnTick;
         internal void Tick(string symbol, PeriodType period, DateTime bartime, DateTime time, double bid, double ask, int spread, double tickvalue,
                 double accountBalance, double accountEquity, double accountProfit, double accountFreeMargin,
-                int positionTicket, int positionType, double positionLots, double positionOpenPrice,
+                int positionTicket, int positionType, double positionLots, double positionOpenPrice, DateTime positionOpenTime,
                 double positionStopLoss, double positionTakeProfit, double positionProfit, string positionComment)
         {
             if (OnTick != null)
             {
                 TickEventArgs tickea = new TickEventArgs(symbol, period, bartime, time, bid, ask, spread, tickvalue,
                     accountBalance, accountEquity, accountProfit, accountFreeMargin,
-                    positionTicket, positionType, positionLots, positionOpenPrice,
+                    positionTicket, positionType, positionLots, positionOpenPrice, positionOpenTime,
                     positionStopLoss, positionTakeProfit, positionProfit, positionComment);
 
                 OnTick.BeginInvoke(this, tickea, null, null);

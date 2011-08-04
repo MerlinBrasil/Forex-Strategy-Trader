@@ -180,7 +180,7 @@ namespace Forex_Strategy_Trader
                     Data.InstrProperties.TickValue = ping.TickValue;
 
                     bool isAccChanged = Data.SetCurrentAccount(ping.Time, ping.AccountBalance, ping.AccountEquity, ping.AccountProfit, ping.AccountFreeMargin);
-                    bool isPosChanged = Data.SetCurrentPosition(ping.PositionTicket, ping.PositionType, ping.PositionLots, ping.PositionOpenPrice,
+                    bool isPosChanged = Data.SetCurrentPosition(ping.PositionTicket, ping.PositionType, ping.PositionLots, ping.PositionOpenPrice, ping.PositionOpenTime,
                                                               ping.PositionStopLoss, ping.PositionTakeProfit, ping.PositionProfit, ping.PositionComment);
 
                     SetDataAndCalculate(ping.Symbol, ping.Period, dtPingServerTime, isNewPrice, bUpdateData);
@@ -230,7 +230,7 @@ namespace Forex_Strategy_Trader
             Data.Bid = 0;
             Data.Ask = 0;
             Data.SetCurrentAccount(DateTime.MinValue, 0, 0, 0, 0);
-            bool poschanged = Data.SetCurrentPosition(0, -1, 0, 0, 0, 0, 0, "");
+            bool poschanged = Data.SetCurrentPosition(0, -1, 0, 0, DateTime.MinValue, 0, 0, 0, "");
             ShowCurrentPosition(poschanged);
             SetEquityInfoText(string.Format("{0} {1}", 0, Data.AccountCurrency));
             UpdateBalanceChart(Data.BalanceData, Data.BalanceDataPoints);
@@ -290,7 +290,7 @@ namespace Forex_Strategy_Trader
                 Data.SetTick(tea.Bid);
                 
                 bool isAccChanged = Data.SetCurrentAccount(tea.Time, tea.AccountBalance, tea.AccountEquity, tea.AccountProfit, tea.AccountFreeMargin);
-                bool isPosChanged = Data.SetCurrentPosition(tea.PositionTicket, tea.PositionType, tea.PositionLots, tea.PositionOpenPrice,
+                bool isPosChanged = Data.SetCurrentPosition(tea.PositionTicket, tea.PositionType, tea.PositionLots, tea.PositionOpenPrice, tea.PositionOpenTime,
                                                           tea.PositionStopLoss, tea.PositionTakeProfit, tea.PositionProfit, tea.PositionComment);
 
                 bool updateData = true;
