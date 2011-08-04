@@ -98,9 +98,6 @@ namespace Forex_Strategy_Trader
 
             Live_Content liveContent = new Live_Content(Data.SystemDir, miLiveContent, miForex, pnlUsefulLinks, pnlForexBrokers);
 
-            Registrar registrar = new Registrar();
-            registrar.Register();
-
             // Starting tips
             if (Configs.ShowStartingTip)
             {

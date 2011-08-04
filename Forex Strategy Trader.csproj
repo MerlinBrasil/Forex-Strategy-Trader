@@ -91,7 +91,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MT4Bridge\MT4 Errors.cs" />
-    <Compile Include="Tools\Registrar.cs" />
     <Compile Include="User interface\Chart Data.cs" />
     <Compile Include="User interface\Chart.cs">
       <SubType>Component</SubType>
