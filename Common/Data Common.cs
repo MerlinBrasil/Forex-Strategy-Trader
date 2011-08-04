@@ -394,7 +394,7 @@ namespace Forex_Strategy_Trader
                 parameters =
                    "?mac="  + mac +
                    "&reg="  + System.Globalization.RegionInfo.CurrentRegion.EnglishName +
-                   "&time=" + (DateTime.Now - fstStartTime).Seconds +
+                   "&time=" + (DateTime.Now - fstStartTime).TotalSeconds.ToString("N0") +
                    "&dtt="  + secondsDemoTrading +
                    "&ltt="  + secondsLiveTrading +
                    "&str="  + savedStrategies;

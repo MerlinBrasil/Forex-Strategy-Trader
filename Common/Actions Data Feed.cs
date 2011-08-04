@@ -699,9 +699,9 @@ namespace Forex_Strategy_Trader
             DeinitTrade();
 
             if (Data.IsDemoAccount)
-                Data.SecondsDemoTrading += (DateTime.Now - Data.DemoTradeStartTime).Seconds;
+                Data.SecondsDemoTrading += (int)(DateTime.Now - Data.DemoTradeStartTime).TotalSeconds;
             else
-                Data.SecondsLiveTrading += (DateTime.Now - Data.LiveTradeStartTime).Seconds;
+                Data.SecondsLiveTrading += (int)(DateTime.Now - Data.LiveTradeStartTime).TotalSeconds;
 
             JournalMessage msg = new JournalMessage(JournalIcons.StopTrading, DateTime.Now, Language.T("Automatic trade stopped."));
             AppendJournalMessage(msg);
