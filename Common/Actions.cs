@@ -191,7 +191,7 @@ namespace Forex_Strategy_Trader
 
             DeinitDataFeed();
             Configs.SaveConfigs();
-            this.Hide();
+            if(!e.Cancel) this.Hide();
             Data.SendStats();
 
             return;
