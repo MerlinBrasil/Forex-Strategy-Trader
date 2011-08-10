@@ -340,6 +340,7 @@
     <EmbeddedResource Include="Img\chart_true_charts.png" />
     <EmbeddedResource Include="Img\copy.png" />
     <EmbeddedResource Include="Img\paste.png" />
+    <Content Include="Img\go_right.png" />
     <Content Include="License.txt" />
     <Content Include="README.txt" />
     <Content Include="Resources\config.xml" />

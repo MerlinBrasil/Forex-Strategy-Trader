@@ -266,14 +266,14 @@ namespace Forex_Strategy_Trader.Properties {
         ///  &lt;MAX_EXIT_FILTERS&gt;2&lt;/MAX_EXIT_FILTERS&gt;
         ///  &lt;SIGMA_MODE_MAIN_CHART&gt;1&lt;/SIGMA_MODE_MAIN_CHART&gt;
         ///  &lt;SIGMA_MODE_SEPARATED_CHART&gt;5&lt;/SIGMA_MODE_SEPARATED_CHART&gt;
-        ///  &lt;installed&gt;True&lt;/installed&gt;
+        ///  &lt;installed&gt;False&lt;/installed&gt;
         ///  &lt;showStartingTip&gt;True&lt;/showStartingTip&gt;
         ///  &lt;currentTipNumber&gt;-1&lt;/currentTipNumber&gt;
         ///  &lt;language&gt;English&lt;/language&gt;
         ///  &lt;gradientView&gt;True&lt;/gradientView&gt;
         ///  &lt;colorScheme&gt;Light Blue&lt;/colorScheme&gt;
         ///  &lt;multipleInstances&gt;False&lt;/multipleInstances&gt;
-        ///  &lt;p [rest of string was truncated]&quot;;.
+        ///  &lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string config {
             get {
@@ -451,7 +451,7 @@ namespace Forex_Strategy_Trader.Properties {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
         ///&lt;update&gt;
         ///  &lt;versions&gt;
-        ///    &lt;release&gt;1040100&lt;/release&gt;
+        ///    &lt;release&gt;0&lt;/release&gt;
         ///    &lt;beta&gt;0&lt;/beta&gt;
         ///  &lt;/versions&gt;
         ///  &lt;links&gt;
@@ -467,7 +467,8 @@ namespace Forex_Strategy_Trader.Properties {
         ///      &lt;url&gt;http://www.fastbrokers.com/index.php?bfd1bd24&lt;/url&gt;
         ///      &lt;comment&gt;Meta Trader platform.&lt;/comment&gt;
         ///    &lt;/broker&gt;
-        ///    &lt;broker [rest of string was truncated]&quot;;.
+        ///    &lt;broker&gt;
+        ///    [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string fst_update {
             get {
@@ -485,6 +486,13 @@ namespace Forex_Strategy_Trader.Properties {
         internal static System.Drawing.Bitmap globe {
             get {
                 object obj = ResourceManager.GetObject("globe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap go_right {
+            get {
+                object obj = ResourceManager.GetObject("go_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

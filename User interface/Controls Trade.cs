@@ -19,6 +19,7 @@ namespace Forex_Strategy_Trader
         protected ToolStripButton   tsbtnTrading;    // Button "Start Automatic Execution".
         protected ToolStripLabel    tslblConnection;
         protected ToolStripButton   tsbtnConnectionHelp;
+        protected ToolStripButton   tsbtnConnectionGo;
 
         protected ToolStripLabel    tslblConnectionID;
         protected ToolStripTextBox  tstbxConnectionID;
@@ -44,6 +45,15 @@ namespace Forex_Strategy_Trader
             tstbxConnectionID.Visible   = Configs.MultipleInstances;
             tstbxConnectionID.KeyPress += new KeyPressEventHandler(TstbxConnectionID_KeyPress);
             tsTradeControl.Items.Add(tstbxConnectionID);
+
+            tsbtnConnectionGo = new ToolStripButton();
+            tsbtnConnectionGo.ToolTipText = Language.T("Go");
+            tsbtnConnectionGo.Image   = Properties.Resources.go_right;
+            tsbtnConnectionGo.Width   = 22;
+            tsbtnConnectionGo.Visible = Configs.MultipleInstances;
+            tsbtnConnectionGo.Enabled = false;
+            tsbtnConnectionGo.Click  += new EventHandler(TsbtConnectionGo_Click);
+            tsTradeControl.Items.Add(tsbtnConnectionGo);
 
             tsbtnChangeID = new ToolStripButton();
             tsbtnChangeID.Text         = "ID ";
@@ -91,6 +101,13 @@ namespace Forex_Strategy_Trader
         /// Button Change ID clicked.
         /// </summary>
         protected virtual void TsbtChangeID_Click(object sender, EventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// Button Connection Go clicked.
+        /// </summary>
+        protected virtual void TsbtConnectionGo_Click(object sender, EventArgs e)
         {
         }
 
