@@ -845,7 +845,7 @@ namespace Forex_Strategy_Trader
                 try
                 {
                     int id = int.Parse(tstbxConnectionID.Text);
-                    if (id >= 0 && id <= 10000)
+                    if (id >= 0)
                     {
                         Data.ConnectionID = id;
                         Disconnect();
@@ -864,7 +864,6 @@ namespace Forex_Strategy_Trader
                     }
                     else
                         tstbxConnectionID.Text = "";
-
                 }
                 catch
                 {

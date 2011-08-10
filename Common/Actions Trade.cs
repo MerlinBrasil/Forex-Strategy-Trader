@@ -929,21 +929,21 @@ namespace Forex_Strategy_Trader
         /// <returns></returns>
         bool IsWrongStopsExecution()
         {
-            if (Data.PositionDirection == PosDirection.Closed)
-                return false;
-
-            if (Data.WrongStopsRetry >= 4)
+            if (Data.PositionDirection == PosDirection.Closed ||
+                Data.PositionLots      == 0 ||
+                Data.WrongStopsRetry   >= 4)
             {
-                Data.WrongStopLoss = 0;
-                Data.WrongTakeProf = 0;
+                Data.WrongStopLoss   = 0;
+                Data.WrongTakeProf   = 0;
                 Data.WrongStopsRetry = 0;
-            }
 
-            if (Data.WrongStopLoss > 0 && Data.PositionTakeProfit < 0.001 ||
-                Data.WrongTakeProf > 0 && Data.PositionStopLoss   < 0.001)
+                return false;
+            }
+            else if (Data.WrongStopLoss > 0 && Data.PositionTakeProfit < 0.001 ||
+                     Data.WrongTakeProf > 0 && Data.PositionStopLoss   < 0.001)
                 return true;
 
-                return false;
+            return false;
         }
 
         /// <summary>
@@ -955,13 +955,6 @@ namespace Forex_Strategy_Trader
             double lots   = NormalizeEntrySize(Data.PositionLots);
             double price  = Data.PositionDirection == PosDirection.Long ? Data.Bid : Data.Ask;
             int    ticket = Data.PositionTicket;
-
-            if (ticket == 0)
-            {   // No position.
-                if (Configs.PlaySounds)
-                    Data.SoundError.Play();
-                return;
-            }
 
             if (Configs.PlaySounds)
                 Data.SoundOrderSent.Play();
