@@ -176,23 +176,26 @@ namespace Forex_Strategy_Trader
             else if (dialogResult == DialogResult.Cancel)
                 e.Cancel = true;
 
-            // Remember the last used strategy
-            if (Configs.RememberLastStr)
+            if (!e.Cancel)
             {
-                if (Data.LoadedSavedStrategy != "")
+                // Remember the last used strategy
+                if (Configs.RememberLastStr)
                 {
-                    string sStrategyPath = Path.GetDirectoryName(Data.LoadedSavedStrategy) + "\\";
-                    string sDefaultPath  = Path.Combine(Data.ProgramDir, Data.DefaultStrategyDir);
-                    if (sStrategyPath == sDefaultPath)
-                        Data.LoadedSavedStrategy = Path.GetFileName(Data.LoadedSavedStrategy);
+                    if (Data.LoadedSavedStrategy != "")
+                    {
+                        string strategyPath = Path.GetDirectoryName(Data.LoadedSavedStrategy) + "\\";
+                        string defaultPath = Path.Combine(Data.ProgramDir, Data.DefaultStrategyDir);
+                        if (strategyPath == defaultPath)
+                            Data.LoadedSavedStrategy = Path.GetFileName(Data.LoadedSavedStrategy);
+                    }
+                    Configs.LastStrategy = Data.LoadedSavedStrategy;
                 }
-                Configs.LastStrategy = Data.LoadedSavedStrategy;
-            }
 
-            DeinitDataFeed();
-            Configs.SaveConfigs();
-            if(!e.Cancel) this.Hide();
-            Data.SendStats();
+                DeinitDataFeed();
+                Configs.SaveConfigs();
+                this.Hide();
+                Data.SendStats();
+            }
 
             return;
         }
