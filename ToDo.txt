@@ -1,4 +1,2 @@
 ﻿- Add Absolute / Relative Permanent S/L and TP in trading logic;
-- Add N bars Exit indicator;
 - Add compact mode 
-- Check NUD
