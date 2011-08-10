@@ -1,6 +1,6 @@
 //+--------------------------------------------------------------------+
 //| File name:  MT4-FST Expert.mq4                                     |
-//| Version:    1.6 2011-08-04                                         |
+//| Version:    1.7 2011-08-10                                         |
 //| Copyright:  © 2011, Miroslav Popov - All rights reserved!          |
 //| Website:    http://forexsb.com/                                    |
 //| Support:    http://forexsb.com/forum/                              |
@@ -27,7 +27,7 @@
 #property copyright "Copyright © 2011, Miroslav Popov"
 #property link      "http://forexsb.com/"
 
-#define EXPERT_VERSION           "1.6"
+#define EXPERT_VERSION           "1.7"
 #define SERVER_SEMA_NAME         "MT4-FST Expert ID - "
 #define TRADE_SEMA_NAME          "TradeIsBusy"
 #define TRADE_SEMA_WAIT          100
@@ -119,6 +119,9 @@ bool     ConnectedToDLL   = false; // It shows whether the expert was connected 
 int      LastError        = 0;     // The number of last error.
 bool     FST_Connected    = false; // Shows if FST is connected.
 datetime TimeLastPing     = 0;     // Time of last ping from Forex Strategy Trader.
+double   PipsValue        = 0;
+int      PipsPoint        = 0;
+int      StopLevel        = 0;
 
 // Aggregate position.
 int      PositionTicket     = 0;
@@ -301,7 +304,6 @@ bool CheckEnvironment()
 ///
 int CloseExpert()
 {
-
    PostMessageA(WindowHandle(Symbol(), Period()), WM_COMMAND, 33050, 0);
    deinit();
 
@@ -322,8 +324,28 @@ int Server()
     string message = expertID + TimeToStr(TimeLocal(), TIME_DATE | TIME_SECONDS) + " Forex Strategy Trader is disconnected.";
     Comment(message);
 
-    if (Protection_Max_StopLoss > 0 && Protection_Max_StopLoss < MarketInfo(Symbol(), MODE_STOPLEVEL))
-        Protection_Max_StopLoss = MarketInfo(Symbol(), MODE_STOPLEVEL);
+    int marketDigits = MarketInfo(Symbol(), MODE_DIGITS);
+    if(marketDigits == 2 || marketDigits == 3)
+        PipsValue = 0.01;
+    else if(marketDigits == 4 || marketDigits == 5)
+        PipsValue = 0.0001;
+    else
+        PipsValue = marketDigits;
+
+    if(marketDigits == 3 || marketDigits == 5)
+        PipsPoint = 10;
+    else
+        PipsPoint = 1;
+
+    StopLevel = MarketInfo(Symbol(), MODE_STOPLEVEL) + PipsPoint;
+    if (StopLevel < 3 * PipsPoint)
+        StopLevel = 3 * PipsPoint;
+
+    if (Protection_Max_StopLoss > 0 && Protection_Max_StopLoss < StopLevel)
+        Protection_Max_StopLoss = StopLevel;
+
+    if (TrailingStop_Moving_Step < PipsPoint)
+        TrailingStop_Moving_Step = PipsPoint;
 
     while (!IsStopped())
     {
@@ -970,7 +992,15 @@ int ModifyPositionByTicket(string symbol, int orderTicket, double stopLossPrice,
     {
         if (!GetTradeContext())
             return (-1);
+
+        if (attempt > 0)
+        {   // Prevents Invalit Stops due to price change during the cycle.
+            stopLossPrice   = CorrectStopLossPrice(symbol,   OrderType(), stopLossPrice);
+            takeProfitPrice = CorrectTakeProfitPrice(symbol, OrderType(), takeProfitPrice);
+        }
+
         bool rc = OrderModify(orderTicket, orderOpenPrice, stopLossPrice, takeProfitPrice, 0);
+
         ReleaseTradeContext();
 
         if (rc)
@@ -982,12 +1012,6 @@ int ModifyPositionByTicket(string symbol, int orderTicket, double stopLossPrice,
         Print("Error with OrderModify(", orderTicket, ", ", orderOpenPrice, ", ", stopLossPrice, ", ", takeProfitPrice, ") ", GetErrorDescription(LastError), ".");
         Sleep(TRADE_RETRY_WAIT);
         RefreshRates();
-
-        if (LastError == 130)
-        {   // Invalid stops error.
-            stopLossPrice   = CorrectStopLossPrice(symbol,   OrderType(), stopLossPrice);
-            takeProfitPrice = CorrectTakeProfitPrice(symbol, OrderType(), takeProfitPrice);
-        }
 
         if (LastError == 4108)
         {   // Invalid ticket error.
@@ -1022,11 +1046,11 @@ double GetTakeProfitPrice(string symbol, int type, double takeprofit)
 {
     double takeProfitPrice = 0;
 
-    if (takeprofit == 0)
+    if (takeprofit < 0.0001)
         return (takeProfitPrice);
 
-    if (takeprofit < MarketInfo(symbol, MODE_STOPLEVEL))
-        takeprofit = MarketInfo(symbol, MODE_STOPLEVEL);
+    if (takeprofit < StopLevel)
+        takeprofit = StopLevel;
 
     if (type == OP_BUY)
         takeProfitPrice = MarketInfo(symbol, MODE_BID) + takeprofit * MarketInfo(symbol, MODE_POINT);
@@ -1045,11 +1069,11 @@ double GetStopLossPrice(string symbol, int type, double lots, double stoploss)
 {
     double stopLossPrice = 0;
 
-    if (stoploss == 0)
+    if (stoploss < 0.0001)
         return (stopLossPrice);
 
-    if (stoploss < MarketInfo(symbol, MODE_STOPLEVEL))
-        stoploss = MarketInfo(symbol, MODE_STOPLEVEL);
+    if (stoploss < StopLevel)
+        stoploss = StopLevel;
 
     if (type == OP_BUY)
         stopLossPrice = MarketInfo(symbol, MODE_BID) - stoploss * MarketInfo(symbol, MODE_POINT);
@@ -1069,21 +1093,20 @@ double CorrectTakeProfitPrice(string symbol, int type, double takeProfitPrice)
     if (takeProfitPrice == 0)
         return (takeProfitPrice);
 
-    double bid = MarketInfo(symbol, MODE_BID);
-    double ask = MarketInfo(symbol, MODE_ASK);
+    double bid   = MarketInfo(symbol, MODE_BID);
+    double ask   = MarketInfo(symbol, MODE_ASK);
     double point = MarketInfo(symbol, MODE_POINT);
-    double stoplevel = MarketInfo(symbol, MODE_STOPLEVEL);
     double minTPPrice;
 
     if (type == OP_BUY)
     {
-        minTPPrice = bid + point * stoplevel;
+        minTPPrice = bid + point * StopLevel;
         if (takeProfitPrice < minTPPrice)
             takeProfitPrice = minTPPrice;
     }
     else // if (type == OP_SELL)
     {
-        minTPPrice = ask - point * stoplevel;
+        minTPPrice = ask - point * StopLevel;
         if (takeProfitPrice > minTPPrice)
             takeProfitPrice = minTPPrice;
     }
@@ -1101,21 +1124,20 @@ double CorrectStopLossPrice(string symbol, int type, double stopLossPrice)
     if (stopLossPrice == 0)
         return (stopLossPrice);
 
-    double bid = MarketInfo(symbol, MODE_BID);
-    double ask = MarketInfo(symbol, MODE_ASK);
+    double bid   = MarketInfo(symbol, MODE_BID);
+    double ask   = MarketInfo(symbol, MODE_ASK);
     double point = MarketInfo(symbol, MODE_POINT);
-    double stoplevel = MarketInfo(symbol, MODE_STOPLEVEL);
     double minSLPrice;
 
     if (type == OP_BUY)
     {
-        minSLPrice = bid - point * stoplevel;
+        minSLPrice = bid - point * StopLevel;
         if (stopLossPrice > minSLPrice)
             stopLossPrice = minSLPrice;
     }
     else // if (type == OP_SELL)
     {
-        minSLPrice = ask + point * stoplevel;
+        minSLPrice = ask + point * StopLevel;
         if (stopLossPrice < minSLPrice)
             stopLossPrice = minSLPrice;
     }
@@ -1200,7 +1222,7 @@ void SetBreakEvenStop(string symbol)
     if (SetAggregatePosition(symbol) <= 0)
         return;
 
-    double breakeven = MarketInfo(symbol, MODE_STOPLEVEL);
+    double breakeven = StopLevel;
     if (breakeven < BreakEven)
         breakeven = BreakEven;
 
@@ -1251,8 +1273,8 @@ void SetTrailingStop(string symbol, bool isNewBar)
        if (PositionType == OP_SELL && PositionTime > barLowTime)
             isCheckTS = false;
 
-        barHighTime = Time[0];
-        barLowTime  = Time[0];
+        barHighTime    = Time[0];
+        barLowTime     = Time[0];
         currentBarHigh = High[0];
         currentBarLow  = Low[0];
     }
@@ -1261,12 +1283,12 @@ void SetTrailingStop(string symbol, bool isNewBar)
         if (High[0] > currentBarHigh)
         {
             currentBarHigh = High[0];
-            barHighTime = Time[0];
+            barHighTime    = Time[0];
         }
         if (Low[0] < currentBarLow)
         {
             currentBarLow = Low[0];
-            barLowTime = Time[0];
+            barLowTime    = Time[0];
         }
     }
 
@@ -1278,7 +1300,7 @@ void SetTrailingStop(string symbol, bool isNewBar)
     else if (TrailingMode == "bar" && isNewBar && isCheckTS)
         SetTrailingStopBarMode(symbol);
 
-    return;
+	return;
 }
 
 ///
@@ -1287,7 +1309,6 @@ void SetTrailingStop(string symbol, bool isNewBar)
 void SetTrailingStopBarMode(string symbol)
 {
     double point = MarketInfo(symbol, MODE_POINT);
-    double stoplevel = MarketInfo(symbol, MODE_STOPLEVEL);
 
     if (PositionType == OP_BUY)
     {   // Long position
@@ -1297,15 +1318,15 @@ void SetTrailingStopBarMode(string symbol)
         {
             if (stoploss < bid)
             {
-                if (stoploss > bid - point * stoplevel)
-                    stoploss = bid - point * stoplevel;
+                if (stoploss > bid - point * StopLevel)
+                    stoploss = bid - point * StopLevel;
 
                 SetStopLossAndTakeProfit(symbol, stoploss, PositionTakeProfit);
                 Print("Trailing Stop (", TrailingStop, " pips) moved to: ", stoploss, ", Bid = ", bid);
             }
             else
             {
-                bool isSucceed = CloseCurrentPosition(symbol, stoplevel) == 0;
+                bool isSucceed = CloseCurrentPosition(symbol, StopLevel) == 0;
                 int lastErrorOrdClose = GetLastError();
                 lastErrorOrdClose = IF_I(lastErrorOrdClose > 0, lastErrorOrdClose, LastError);
                 if (!isSucceed) Print("Error in OrderClose: ", GetErrorDescription(lastErrorOrdClose));
@@ -1320,15 +1341,15 @@ void SetTrailingStopBarMode(string symbol)
         {
             if (stoploss > ask)
             {
-                if (stoploss < ask + point * stoplevel)
-                    stoploss = ask + point * stoplevel;
+                if (stoploss < ask + point * StopLevel)
+                    stoploss = ask + point * StopLevel;
 
                 SetStopLossAndTakeProfit(symbol, stoploss, PositionTakeProfit);
                 Print("Trailing Stop (", TrailingStop, " pips) moved to: ", stoploss, ", Ask = ", ask);
             }
             else
             {
-                isSucceed = CloseCurrentPosition(symbol, stoplevel) == 0;
+                isSucceed = CloseCurrentPosition(symbol, StopLevel) == 0;
                 lastErrorOrdClose = GetLastError();
                 lastErrorOrdClose = IF_I(lastErrorOrdClose > 0, lastErrorOrdClose, LastError);
                 if (!isSucceed) Print("Error in OrderClose: ", GetErrorDescription(lastErrorOrdClose));
@@ -1379,15 +1400,24 @@ void ParseOrderParameters(string parameters)
     if (StringSubstr(param[0], 0, 3) == "TS0")
     {
         TrailingStop = StrToInteger(StringSubstr(param[0], 4));
+        if (TrailingStop > 0 && TrailingStop < StopLevel)
+            TrailingStop = StopLevel;
+
         TrailingMode = "bar";
     }
     if (StringSubstr(param[0], 0, 3) == "TS1")
     {
         TrailingStop = StrToInteger(StringSubstr(param[0], 4));
-        TrailingMode = "tick";
+        if (TrailingStop > 0 && TrailingStop < StopLevel)
+            TrailingStop = StopLevel;
+
+       TrailingMode = "tick";
     }
     if (StringSubstr(param[1], 0, 3) == "BRE")
         BreakEven = StrToInteger(StringSubstr(param[1], 4));
+
+	if (BreakEven > 0 && BreakEven < StopLevel)
+		BreakEven = StopLevel;
 
     Print("Trailing Stop = ", TrailingStop, ", Mode - ", TrailingMode, ", Break Even = ", BreakEven);
 
@@ -1524,7 +1554,7 @@ bool CheckChartBarsNumber(string symbol, int period, int barsNecessary)
         Print(message);
     }
 
-     return (bars >= barsNecessary);
+    return (bars >= barsNecessary);
 }
 
 ///
