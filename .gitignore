@@ -1,9 +1,10 @@
 Thumbs.db
+/*ReSharper*
 /*.suo
 /*.sln.docstates
 /obj
-/bin/fst-padfile.xml
 /bin/*.exe
+/bin/fst-padfile.xml
 /bin/Debug/*.exe
 /bin/Debug/*.config
 /bin/Debug/*.pdb

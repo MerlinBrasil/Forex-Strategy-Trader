@@ -669,10 +669,7 @@ namespace Forex_Strategy_Trader
             // Resets trade global variables.
             InitTrade();
 
-            if (Data.IsDemoAccount)
-                Data.DemoTradeStartTime = DateTime.Now;
-            else
-                Data.LiveTradeStartTime = DateTime.Now;
+            Data.SetStartTradingTime();
             JournalMessage msg = new JournalMessage(JournalIcons.StartTrading, DateTime.Now, Language.T("Automatic trade started."));
             AppendJournalMessage(msg);
 
@@ -698,10 +695,7 @@ namespace Forex_Strategy_Trader
 
             DeinitTrade();
 
-            if (Data.IsDemoAccount)
-                Data.SecondsDemoTrading += (int)(DateTime.Now - Data.DemoTradeStartTime).TotalSeconds;
-            else
-                Data.SecondsLiveTrading += (int)(DateTime.Now - Data.LiveTradeStartTime).TotalSeconds;
+            Data.SetStopTradingTime();
 
             JournalMessage msg = new JournalMessage(JournalIcons.StopTrading, DateTime.Now, Language.T("Automatic trade stopped."));
             AppendJournalMessage(msg);

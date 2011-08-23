@@ -267,7 +267,7 @@ namespace Forex_Strategy_Trader
             programName = "Forex Strategy Trader";
             programVersion = Application.ProductVersion;
             string[] asVersion = programVersion.Split('.');
-            programID = 1000000 * int.Parse(asVersion[0]) + 10000 * int.Parse(asVersion[1]) + 
+            programID = 1000000 * int.Parse(asVersion[0]) + 10000 * int.Parse(asVersion[1]) +
                 100 * int.Parse(asVersion[2]) + int.Parse(asVersion[3]);
             Strategy.GenerateNew();
             stckStrategy = new Stack<Strategy>();
@@ -281,10 +281,10 @@ namespace Forex_Strategy_Trader
         public static void Start()
         {
             // Sets the date format.
-            dateFormat = System.Globalization.DateTimeFormatInfo.CurrentInfo.ShortDatePattern;
+            dateFormat = DateTimeFormatInfo.CurrentInfo.ShortDatePattern;
             if (dateFormat == "dd/MM yyyy") dateFormat = "dd/MM/yyyy"; // Fixes the Uzbek (Latin) issue
             dateFormat = dateFormat.Replace(" ", ""); // Fixes the Sloven issue
-            char[]   acDS = System.Globalization.DateTimeFormatInfo.CurrentInfo.DateSeparator.ToCharArray();
+            char[]   acDS = DateTimeFormatInfo.CurrentInfo.DateSeparator.ToCharArray();
             string[] asSS = dateFormat.Split(acDS, 3);
             asSS[0] = asSS[0].Substring(0, 1) + asSS[0].Substring(0, 1);
             asSS[1] = asSS[1].Substring(0, 1) + asSS[1].Substring(0, 1);
@@ -345,9 +345,9 @@ namespace Forex_Strategy_Trader
         /// </summary>
         public static void SetStrategyIndicators()
         {
-            asStrategyIndicators = new string[Data.Strategy.Slots];
-            for (int i = 0; i < Data.Strategy.Slots; i++)
-                asStrategyIndicators[i] = Data.Strategy.Slot[i].IndicatorName;
+            asStrategyIndicators = new string[Strategy.Slots];
+            for (int i = 0; i < Strategy.Slots; i++)
+                asStrategyIndicators[i] = Strategy.Slot[i].IndicatorName;
         }
 
         /// <summary>
@@ -371,6 +371,31 @@ namespace Forex_Strategy_Trader
         }
 
         /// <summary>
+        /// Sets the time when trading starts.
+        /// </summary>
+        public static void SetStartTradingTime()
+        {
+            if (IsDemoAccount)
+                DemoTradeStartTime = DateTime.Now;
+            else
+                LiveTradeStartTime = DateTime.Now;
+        }
+
+        /// <summary>
+        /// Sets the total trading time stats.
+        /// </summary>
+        public static void SetStopTradingTime()
+        {
+            if (IsDemoAccount && DemoTradeStartTime > DateTime.MinValue)
+                SecondsDemoTrading += (int)(DateTime.Now - DemoTradeStartTime).TotalSeconds;
+            else if (LiveTradeStartTime > DateTime.MinValue)
+                SecondsLiveTrading += (int)(DateTime.Now - LiveTradeStartTime).TotalSeconds;
+
+            DemoTradeStartTime = DateTime.MinValue;
+            LiveTradeStartTime = DateTime.MinValue;
+        }
+
+        /// <summary>
         /// Collects usage statistics and sends them if it's allowed.
         /// </summary>
         public static void SendStats()
@@ -387,14 +412,14 @@ namespace Forex_Strategy_Trader
                 }
             }
 
-            string parameters = string.Empty;
+            string parameters = String.Empty;
 
             if (Configs.SendUsageStats)
             {
                 parameters =
                    "?mac="  + mac +
-                   "&reg="  + System.Globalization.RegionInfo.CurrentRegion.EnglishName +
-                   "&time=" + (DateTime.Now - fstStartTime).TotalSeconds.ToString("N0") +
+                   "&reg="  + RegionInfo.CurrentRegion.EnglishName +
+                   "&time=" + (int)(DateTime.Now - fstStartTime).TotalSeconds +
                    "&dtt="  + secondsDemoTrading +
                    "&ltt="  + secondsLiveTrading +
                    "&str="  + savedStrategies;

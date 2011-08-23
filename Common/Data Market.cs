@@ -101,9 +101,9 @@ namespace Forex_Strategy_Trader
 
         static int BALANCE_LENGHT = 2000;
         static Balance_Chart_Unit[] balanceData = new Balance_Chart_Unit[BALANCE_LENGHT];
-        public static Balance_Chart_Unit[] BalanceData { get { return Data.balanceData; } }
+        public static Balance_Chart_Unit[] BalanceData { get { return balanceData; } }
         static int balanceDataPoints = 0;
-        public static int BalanceDataPoints { get { return Data.balanceDataPoints; } }
+        public static int BalanceDataPoints { get { return balanceDataPoints; } }
         static bool balanceDataChganged = false;
         public static bool IsBalanceDataChganged { get { return balanceDataChganged; } }
 
@@ -239,7 +239,7 @@ namespace Forex_Strategy_Trader
             }
 
             if (changed && Configs.PlaySounds)
-                Data.SoundPositionChanged.Play();
+                SoundPositionChanged.Play();
 
             return changed;
         }
