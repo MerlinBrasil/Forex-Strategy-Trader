@@ -179,7 +179,7 @@ namespace Forex_Strategy_Trader
                     Data.InstrProperties.Spread    = ping.Spread;
                     Data.InstrProperties.TickValue = ping.TickValue;
 
-                    Data.ServerTime = dtPingServerTime;
+                    Data.ServerTime = ping.Time;
 
                     bool isAccChanged = Data.SetCurrentAccount(ping.Time, ping.AccountBalance, ping.AccountEquity, ping.AccountProfit, ping.AccountFreeMargin);
                     bool isPosChanged = Data.SetCurrentPosition(ping.PositionTicket, ping.PositionType, ping.PositionLots, ping.PositionOpenPrice, ping.PositionOpenTime,
