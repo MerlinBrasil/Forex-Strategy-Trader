@@ -39,6 +39,7 @@ namespace Forex_Strategy_Trader
             {"Data Bars Filter",          new Data_Bars_Filter(SlotTypes.NotDefined)},
             {"Date Filter",               new Date_Filter(SlotTypes.NotDefined)},
             {"Day Closing",               new Day_Closing(SlotTypes.NotDefined)},
+            {"Day Closing 2",             new Day_Closing_2(SlotTypes.NotDefined)},
             {"Day of Week",               new Day_of_Week(SlotTypes.NotDefined)},
             {"Day Opening",               new Day_Opening(SlotTypes.NotDefined)},
             {"DeMarker",                  new DeMarker(SlotTypes.NotDefined)},
@@ -115,6 +116,7 @@ namespace Forex_Strategy_Trader
             {"Trix Index",                new Trix_Index(SlotTypes.NotDefined)},
             {"Trix MA Oscillator",        new Trix_MA_Oscillator(SlotTypes.NotDefined)},
             {"Week Closing",              new Week_Closing(SlotTypes.NotDefined)},
+            {"Week Closing 2",            new Week_Closing_2(SlotTypes.NotDefined)},
             {"Williams' Percent Range",   new Williams_Percent_Range(SlotTypes.NotDefined)},
         };
 

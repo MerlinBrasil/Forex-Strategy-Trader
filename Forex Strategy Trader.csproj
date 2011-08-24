@@ -77,6 +77,8 @@
     <Compile Include="Dialogs\Command Console.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Indicators\Day Closing.cs" />
+    <Compile Include="Indicators\Week Closing 2.cs" />
     <Compile Include="Indicators\N Bars Exit.cs" />
     <Compile Include="Instruments\Bar Stats.cs" />
     <Compile Include="Common\Configs.cs" />
@@ -149,7 +151,7 @@
     <Compile Include="Indicators\Cumulative Sum.cs" />
     <Compile Include="Indicators\Data  Bars Filter.cs" />
     <Compile Include="Indicators\Date Filter.cs" />
-    <Compile Include="Indicators\Day Closing.cs" />
+    <Compile Include="Indicators\Day Closing 2.cs" />
     <Compile Include="Indicators\Day of Week.cs" />
     <Compile Include="Indicators\Day Opening.cs" />
     <Compile Include="Indicators\DeMarker.cs" />

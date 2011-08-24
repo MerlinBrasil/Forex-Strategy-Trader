@@ -65,6 +65,10 @@ namespace Forex_Strategy_Trader
         {
             oldbid = oldask = bid = ask = 0;
         }
+
+        // Server time
+        private static DateTime serverTime = DateTime.Now;
+        public static DateTime ServerTime { get { return serverTime; } set { serverTime = value; } }
   
         // Ticks
         static List<double> listTicks = new List<double>();

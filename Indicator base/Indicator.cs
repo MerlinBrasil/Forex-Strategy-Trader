@@ -247,6 +247,11 @@ namespace Forex_Strategy_Trader
         protected static int[] Volume { get { return Data.Volume; } }
 
         /// <summary>
+        /// Server time
+        /// </summary>
+        protected static DateTime ServerTime { get { return Data.ServerTime; } }
+
+        /// <summary>
         /// Calculates the base price.
         /// </summary>
         /// <param name="price">The base price type.</param>

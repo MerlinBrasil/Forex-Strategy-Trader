@@ -85,10 +85,10 @@ namespace Forex_Strategy_Trader
                 else
                     adBars[iBar] = 0;
             }
-			
-			// Check the last bar
-			if(Time[Bars - 1].TimeOfDay.Add(new TimeSpan(0, (int)Period, 0)) == tsExitHour)
-				adBars[Bars - 1] = Close[Bars - 1];
+            
+            // Check the last bar
+            if(Time[Bars - 1].TimeOfDay.Add(new TimeSpan(0, (int)Period, 0)) == tsExitHour)
+                adBars[Bars - 1] = Close[Bars - 1];
 
             // Saving the components
             Component = new IndicatorComp[1];
@@ -103,7 +103,7 @@ namespace Forex_Strategy_Trader
 
             return;
         }
-		
+        
         /// <summary>
         /// Sets the indicator logic description
         /// </summary>
