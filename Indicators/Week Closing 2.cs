@@ -23,7 +23,7 @@ namespace Forex_Strategy_Trader
             PossibleSlots = SlotTypes.Close;
             AllowClosingFilters = true;
             WarningMessage = "The indicator sends a close signal at first tick after the selected time." + Environment.NewLine +
-                "It continues sending close signals to all positions till the end of the day." + Environment.NewLine +
+                "It prevents opening of new positions after the closing time on the same day." + Environment.NewLine +
                 "The indicator uses the server time that comes from the broker together with ticks.";
 
             // Setting up the indicator parameters
@@ -89,14 +89,28 @@ namespace Forex_Strategy_Trader
                 else
                     adClosePrice[bar] = 0;
             }
+
+            double[] adAllowOpenLong  = new double[Bars];
+            double[] adAllowOpenShort = new double[Bars];
+
+            for (int bar = 1; bar < Bars; bar++)
+            {
+                adAllowOpenLong[bar]  = 1;
+                adAllowOpenShort[bar] = 1;
+            }
             
             // Check the last bar
             if (time.DayOfWeek == DayOfWeek.Friday)
                 if (time >= fridayTime)
+                {
                     adClosePrice[Bars - 1] = Close[Bars - 1];
+                    // Prevent entries after closing time
+                    adAllowOpenLong[Bars - 1]  = 0;
+                    adAllowOpenShort[Bars - 1] = 0;
+                }
 
             // Saving the components
-            Component = new IndicatorComp[1];
+            Component = new IndicatorComp[3];
 
             Component[0] = new IndicatorComp();
             Component[0].CompName      = "Week Closing";
@@ -105,6 +119,22 @@ namespace Forex_Strategy_Trader
             Component[0].ShowInDynInfo = false;
             Component[0].FirstBar      = firstBar;
             Component[0].Value         = adClosePrice;
+
+            Component[1]               = new IndicatorComp();
+            Component[1].DataType      = IndComponentType.AllowOpenLong;
+            Component[1].CompName      = "Is long entry allowed";
+            Component[1].ChartType     = IndChartType.NoChart;
+            Component[1].ShowInDynInfo = false;
+            Component[1].FirstBar      = 2;
+            Component[1].Value         = adAllowOpenLong;
+
+            Component[2]               = new IndicatorComp();
+            Component[2].DataType      = IndComponentType.AllowOpenShort;
+            Component[2].CompName      = "Is short entry allowed";
+            Component[2].ChartType     = IndChartType.NoChart;
+            Component[2].ShowInDynInfo = false;
+            Component[2].FirstBar      = 2;
+            Component[2].Value         = adAllowOpenShort;
 
             return;
         }
